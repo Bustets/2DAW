@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    var dinero = prompt ("cuanto dinero quieres cambiar");
+    var dinero_int = parseInt(dinero);
+    var b_500=Math.floor(dinero_int/500);
+    dinero_int =dinero_int-(b_500*500);
+    var b_200=Math.floor(dinero_int/200);
+    dinero_int =dinero_int-(b_200*200);
+    var b_100=Math.floor(dinero_int/100);
+    dinero_int =dinero_int-(b_100*100);
+    var b_50=Math.floor(dinero_int/50);
+    dinero_int =dinero_int-(b_50*50);
+    var b_20=Math.floor(dinero_int/20);
+    dinero_int =dinero_int-(b_20*20);
+    var b_10=Math.floor(dinero_int/10);
+    dinero_int =dinero_int-(b_10*10);
+    var b_5=Math.floor(dinero_int/5);
+    dinero_int =dinero_int-(b_5*5);
+
+    var parrafo_billetes = "<p>";
+    for(i=0; 1<b_500;i++);{
+        parrafo_billetes+=" <img src='/EUR_500.jpg' style='max_width: 10%;>'";
+    }
+    for(i=0; 1<b_200;i++);{
+        parrafo_billetes+=" <img src='/EUR_200.jpg' style='max_width: 10%;>'";
+    }
+    for(i=0; 1<b_100;i++);{
+        parrafo_billetes+=" <img src='/EUR_100.jpg' style='max_width: 10%;>'";
+    }
+    for(i=0; 1<b_50;i++);{
+        parrafo_billetes+=" <img src='/EUR_50.jpg' style='max_width: 10%;>'";
+    }
+    for(i=0; 1<b_20;i++);{
+        parrafo_billetes+=" <img src='/EUR_20.jpg' style='max_width: 10%;>'";
+    }
+    for(i=0; 1<b_10;i++);{
+        parrafo_billetes+=" <img src='/EUR_10.jpg' style='max_width: 10%;>'";
+    }
+    for(i=0; 1<b_5;i++);{
+        parrafo_billetes+=" <img src='/EUR_5.jpg' style='max_width: 10%;>'";
+    }
+
+    parrafo_billetes += "<p>"
+    document.write(parrafo_billetes);
+</script>
+
+
+</body>

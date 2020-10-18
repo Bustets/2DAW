@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Prigramas Iniciales</title>
+</head>
+<Body>
+
+    <h5>2) Realizar un programa que pasados 20 segundos, nos muestre una vez la fecha actual del sistema.</h5>
+    
+    <script>
+
+    var myVar = setInterval(myTimer, 20000);
+
+    function myTimer() {
+    var d = new Date();
+    var t = d.toLocaleTimeString();
+    document.write(t +"\n");
+    
+}
+
+    </script>
+
+</Body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Juego de click</title>
+        <script src="laberinto.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="tablero">
+            <div id="salida" onmouseover="reiniciar()" onmousemove="reiniciar()"></div>
+            <div id="pared_0" class="pared" onmouseover="perder()"></div>
+            <div id="pared_1" class="pared" onmouseover="perder()"></div>
+            <div id="pared_2" class="pared" onmouseover="perder()"></div>
+            <div id="final" onmouseover="ganar()"></div>
+        
+        </div>
+        <div class="abajo" onmousemove="trampa=true"></div>
+    
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<body>
+    <script>
+        var num = prompt("Introduce una cantidad de dinero que sea múltiplo de 5");
+        var cinco = 0, diez = 0, veinte = 0, cinc = 0, cien = 0, dosc = 0, quin = 0;
+        do {
+            for (j = 0; j <= num; j++) {
+            }
+            if (j >= 500) {
+                quin++;
+                num -= 500;
+                document.write("<img src='EUR_500.jpg'>");
+            } else if (j >= 200) {
+                dosc++;
+                num -= 200;
+                document.write("<img src='EUR_200.jpg'>");
+            } else if (j >= 100) {
+                cien++;
+                num -= 100;
+                document.write("<img src='EUR_100.jpg'>");
+            } else if (j >= 50) {
+                cinc++;
+                num -= 50;
+                document.write("<img src='EUR_50.jpg'>");
+            } else if (j >= 20) {
+                veinte++;
+                num -= 20;
+                document.write("<img src='EUR_20.jpg'>");
+            } else if (j >= 10) {
+                diez++;
+                num -= 10;
+                document.write("<img src='EUR_10.jpg'>");
+            } else if (j >= 5) {
+                cinco++;
+                num -= 5;
+                document.write("<img src='EUR_5.jpg'>");
+            }
+
+        } while (num > 0);
+        document.write("<br>Billetes: <br>500: " + quin + "<br>200: " + dosc +
+            "<br>100: " + cien + "<br>50: " + cinc + "<br>20: " + veinte +
+            "<br>10: " + diez + "<br>5: " + cinco);
+    </script>
+</body>

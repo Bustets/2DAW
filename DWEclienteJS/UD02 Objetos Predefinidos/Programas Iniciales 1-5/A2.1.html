@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Programas Iniciales</title>
+</head><br><br>
+<body>
+    <h5>1) Realiza un programa que cada 20 segundos (mediante setInterval) solicite un DNI hasta que alguien le escriba la cadena “-1”.  En ese momento, el programa debe mostrar seguidas las letras de todos los DNIs introducidos.</h5>
+    <script>
+        var dni = new Array;
+        var parar = 0;
+        var contador = 0;
+        while (parar != -1) {
+            parar = prompt("Introduce un DNI o -1 para parar");
+            dni[contador] = parar;
+            setInterval(20000);
+            contador++;
+        }
+        borrarElementoArray();
+        for (i = 0; i < dni.length; i++) {
+            document.write(dni[i] + "" + letraDNI(dni[i]) + "<br>");
+
+        }
+        alert("Has parado");
+        function letraDNI(numeroDni) {
+            var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+            return letras[numeroDni % 23];
+        }
+        function borrarElementoArray(){
+            var x = dni.indexOf(contador);
+            dni.splice(x, 1);
+        }
+    </script>
+</body>
+</html>
