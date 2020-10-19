@@ -28,7 +28,7 @@ if (isset($_GET['enviar'])) {
 			require "vistas/mensaje.php";
 			}
 	}
-}	
+}	  
 if (!isset($_GET['enviar']) || $error){	
 	require "vistas/formulario.php";
 		}	
