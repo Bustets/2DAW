@@ -7,6 +7,7 @@
 <body>
 	<h1><strong>Restaurante de DIW</strong></h1>
 	<h3><strong>Formulario para reserva</strong></h3>
+	<form>
 	<p>Nombre y apellidos <input type="Text" name="NombreApellidos"></p>
 	<p>Correo electrónico <input type="email" name="Correo"></p>
 	<p>Teléfono <input type="number" name="numeroTelefono" value="678232498"></p>
@@ -14,9 +15,18 @@
        value="2020-07-22"
        min="2020-01-01" max="2020-12-31"></p>
     <!-- Es con select-->
-    <p>Franja Horaria <input type="time" name="FranjaHoraria"
-       min="00:00" max="23:59"></p>
-    <p>Comensales <input type="number" name="Comensales" min="1" max="150"></p>
-
+    <p>Franja Horaria 
+		<select>
+			<option>10:00 -- 11:00</option>
+			<option>11:00 -- 12:00</option>
+			<option>12:00 -- 13:00</option>
+			<option>13:00 -- 14:00</option>
+		</select><br><br>
+	</p>
+	<p>Comensales (1 minimo - 150 máximo) <input type="number" name="Comensales" min="1" max="150"></p>
+	<p>Color del mantel: <input type="Color" name="color"></p><br><br>
+	<p>Observaciones sobre la reserva:</p><br>
+		<textarea placeholder="alergias, tronas,..."></textarea>
+	</form>
 </body>
 </html>
