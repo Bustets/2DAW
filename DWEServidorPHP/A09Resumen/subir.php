@@ -4,8 +4,8 @@ function crear_directorio ($dir){
 }
 function estado_archivo ($nombre, $directorio){
 	$partes=explode('.', $nombre);
-	$extension=array_pop($partes);
-	if ((strtoupper($extension)=='GIF') || (strtoupper($extension)=='PNG') || (strtoupper($extension)=='JPG')) {
+	$extension=array_pop($partes);//Extraer y borrar array_pop
+	if ((strtoupper($extension)=='GIF') || (strtoupper($extension)=='PNG') || (strtoupper($extension)=='JPG')) {//strtoupper nos pone todo a mayusculas
 		$nombre=implode('.', $partes);
 		if(is_file($directorio.'/'.$nombre.".".$extension)){
 			$idUnico=uniqid();		
