@@ -6,18 +6,19 @@
 </head>
 <body>
 
-	<form action='Operaciones.php' method="post">
-andjasdklasjdkasjdlkasjdklasjdkljaskldjaskldjaskldjald
-		Número 1: <input type="text" name='num1'><br>
-		Número 2: <input type="text" name='num2'><br>
-
-		<select name='operaciones'>
-			<option value='s'>Sumar</option>
-			<option value='r'>Restar</option>
-			<option value='m'>Multiplicar</option>
-			<option value='d'>Dividir</option>	
+	<p>
+		<select name="Operaciones">
+			<option>Sumar</option>
+			<option>Restar</option>
+			<option>Multiplicar</option>
+			<option>Dividir</option>	
 		</select>
-		<input type='submit' name='enviar'><br>
+	</p>
+
+	<form  method="post" action ='Form_Operaciones.php'>
+		Número 1: <input type="text" name="num1"><br>
+		Número 2: <input type="text" name="num2"><br>
+		<input type="submit" name="enviar"><br>
 	</form>
 
 </body>

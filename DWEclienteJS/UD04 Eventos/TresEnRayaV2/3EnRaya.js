@@ -24,10 +24,8 @@ function pinto_tablero(){  // copio el array a los inputs
                 }
             }else{
                 var nodo = document.createElement("img"); 
-                
                 nodo.setAttribute("width", "100");
                 nodo.setAttribute("height", "100");
-                
                 if(tablero[i][j]=="o"){
                     document.getElementById(id_casilla).disabled=true; // si es jugada de la maquina, deshabilito el input
                     nodo.setAttribute("src", "o.png");

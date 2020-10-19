@@ -1,0 +1,16 @@
+windows.onload = function(){
+
+    for(i=1; i>=3; i++){
+        document.getElementById("miP"+i).onclick=ocultar;
+        document.getElementById("miP"+i).ondblclick=eliminar;
+    }
+
+}
+
+function ocultar(evento){
+    //.hideden=true
+}
+
+function eliminar(evento){
+    //removeChild
+}
