@@ -7,6 +7,52 @@
 </head>
 <body>
 
-    
+    <h1>Suleyman's Dürüm Food Truck</h1>
+    <h2>El Döner Kebab más enrollado</h2>
+    <p>
+        <ul type="square">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="contactos.html">Contacto</a></li>
+        </ul>
+    </p>
+    <form action="mailto:pedidos@foofoods.com" method="POST" autocomplete="on">
+        <h3>Datos de Contacto</h3><br>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br><br>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <h3>Dürum tipo</h3>
+        <label for="DurumPollo">Pollo</label>
+        <input type="number" id="NumeroPollo" value="0" min="1" max="10" autocomplete="off"><br>
+        <label for="DurumTernera">Ternera</label>
+        <input type="number" id="NumeroTernera" value="0" min="1" max="10" autocomplete="off" ><br>
+        <label for="DurumMixto">Mixto</label>
+        <input type="number" id="NumeroMixto" value="0" min="1" max="10" autocomplete="off"><br>
+        <label for="DurumMixto">Vegetariano</label>
+        <input type="number" id="NumeroVegetariano" value="0" min="1" max="10" autocomplete="off"><br>
+        <label for="Npicante">Nivel de Picante</label>
+        <input type="range" name="Npicante"><br><br>
+        <label for="infoAdicional">Información Adicional</label>
+        <textarea placeholder="Alergias,...." name="infoAdicional"></textarea><br><br>
+        <label for="pagar">¿Como va a pagar?</label>
+        <select name="pagar" required>
+            <option>Efectivo</option>
+            <option>Tarjeta</option>
+        </select><br><br>
+        <h3>¿Lo quiere para llevar(envuelto) o en Plato(caja de carton)?</h3>
+        <select name="envuelto">
+            <option>Para llevar</option>
+            <option>En Plato</option>
+        </select>
+        <input type="checkbox" name="condiciones" required>
+	<label for="condiciones">Acepto las condiciones de uso del servicio</label><br><br>
+    <input type="submit" value="nviar">
+    <input type="reset" value="Borrar todo">
+    </form>
+    <div>
+        <footer style="text-align: center; padding: 250px;">&copy; 2020 Pablo Bustos</footer>
+    </div>
 </body>
 </html>
