@@ -23,7 +23,7 @@ function tabla($array){
 	echo "<tabla>". $Paises; echo "<br>"
 	}
 	foreach($Capital as $Capitales){
-	echo $Capitales; echo "<br>"
+	echo $Capitales; echo "<br>";
 	}
 }  
 
