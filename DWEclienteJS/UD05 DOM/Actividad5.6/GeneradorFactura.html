@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="GeneradorFactura.css">
+    <script src="GeneradorFactura.js"></script>
+    <title>Generador de Factura</title>
+</head>
+<body>
+<h3>Introducción facturas</h3>
+    <table>
+        <div>
+            <input type="text" id= "producto" >
+            <input type="number" id= "cantidad" >
+            <input type="number" id= "precio" >
+            <button onclick="anadoFila()">Añadir</button>
+        </div>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Precio Total</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpo"></tbody>
+        <tfoot>
+            <tr>
+                <th>Base Imponible</th>
+                <th><span id="base"></span></th>
+            </tr>
+            <tr>
+                <th>IVA</th>
+            </tr>
+            <tr>
+                <th>Total Factura</th>
+            </tr>
+        </tfoot>
+    </table>
+    
+</body>
+</html>
