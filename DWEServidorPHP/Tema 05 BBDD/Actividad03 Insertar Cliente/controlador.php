@@ -19,7 +19,6 @@ if (isset($_POST['enviar'])) {
 			$mensaje.="<a href='controlador.php'>volver</a>";
 			require ('vistas/mensaje.php');
 		}else {
-			$mensaje="El cliente ya existe vuelva a introducirlo <a href='controlador.php'>volver</a>";
 			require ('vistas/mensaje.php');
 		}
 	
