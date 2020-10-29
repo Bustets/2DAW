@@ -1,0 +1,10 @@
+li, a{
+    color: #B22222;
+    text-decoration: none;
+    list-style-type: none;
+
+}
+li, a:hover{
+    color: black;
+    text-decoration: none;
+}
