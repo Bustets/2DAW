@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Factura CON Jquery</title>
+	<link rel="stylesheet" type="text/css" href="genf.css">
+	<script src="jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="code.js"></script>
+	</head>
+<body>
+<div> 
+	<h1>Gestor de faturas con jquery</h1>
+	Producto:<select id="producto"></select>
+	Cantidad:<input type="number" id="cantidad" value="0" />
+	Precio:<input type="number" id="puni" value="0" />
+	<button id="anyadir">Añadir</button>
+	<br><br>
+</div>
+<table id="tabla">
+	<thead>	<tr><td>Producto</td><td>Cantidad</td><td>Pecio unitario</td><td>Precio total</td><td>Accions</td></tr></thead>
+	<tbody> </tbody> 
+	<tfoot> 
+		<tr><td colspan="4">Base imponible</td>
+			<td id="base">0</td>
+		</tr>
+		<tr><td colspan="4" >IVA 21%</td>
+			<td id="iva">0</td></tr>
+		<tr><td colspan="4">Total factura</td>
+			<td id="total">0</td>
+		</tr>
+	</tfoot>
+	
+</table>
+</body>
+</html>
