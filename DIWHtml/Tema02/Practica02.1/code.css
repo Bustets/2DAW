@@ -1,0 +1,58 @@
+table tr td~td{
+	background-color: #CAD0D7;
+}
+table{
+	background-color: #737A82;
+	text-align: center;
+}
+td{
+	width: 150px;
+}
+.dwc{
+    background-color: red;
+}
+.dwc::before{
+	content: "DWC"
+}
+
+.diw{
+	background-color: green;
+}
+.diw::before{
+	content: "DIW";
+}
+
+.dws{
+	background-color: blue;
+}
+.dws::before{
+    content: "DWS";
+}
+
+.daw{
+	background-color: purple;
+}
+.daw::before{
+	content: "DAW";
+}
+
+.tutoria{
+	background-color: white;
+}
+.tutoria::before{
+	content: "TUTORIA";
+}
+
+.eie{
+	background-color: orange;
+}
+.eie::before{
+	content: "EIE";
+}
+
+.ingles{
+	background-color: yellow;
+}
+.ingles::before{
+	content: "Inglés";
+}
