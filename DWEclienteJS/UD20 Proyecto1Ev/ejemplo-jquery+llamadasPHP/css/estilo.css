@@ -1,0 +1,11 @@
+
+/* Estilos generales*/
+*{  
+    font-family: 'PT Sans', sans-serif;
+  }
+  
+  .contenedor, td {
+    border: solid 1px black;
+    margin: 2px;
+    padding: 2px;
+  }
