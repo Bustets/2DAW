@@ -41,6 +41,11 @@ class Cliente
 			$result=$link->query($consulta);
 			return $result->fetch_assoc();
 		}
+		function autenticar ($link){
+			$consulta="SELECT nombre FROM clientes where dniCliente='$this->dniCliente' and pwd='$this->pwd'";
+			$result=$link->query($consulta);
+			return $result->fetch_assoc();
+		}
 		function insertar ($link){
 			$consulta="INSERT INTO clientes VALUES ('$this->dniCliente','$this->nombre','$this->direccion','$this->email','$this->pwd')";
 			return $link->query($consulta);
@@ -52,8 +57,5 @@ class Cliente
 		function borrar ($link){
 			$consulta="DELETE FROM clientes where dniCliente='$this->dniCliente'";
 			return $link->query($consulta);
-		}
-		function autenticar(){
-			
 		}
 }
