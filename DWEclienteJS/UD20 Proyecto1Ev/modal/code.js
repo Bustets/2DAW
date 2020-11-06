@@ -12,8 +12,12 @@ $(document).ready(function(){
 	
 	$("#ocultar-caja").click(function(){
 		$("#caja-modal1").hide();
+	})
+
+	$("#ocultar-caja2").click(function(){
 		$("#caja-modal2").hide();
 	})
+
 
 	
 
