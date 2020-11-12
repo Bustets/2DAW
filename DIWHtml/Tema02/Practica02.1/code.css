@@ -1,3 +1,8 @@
+body{
+	font-family: sans-serif;
+	font-size: medium;
+}
+
 table tr td~td{
 	background-color: #CAD0D7;
 }
@@ -15,43 +20,30 @@ td{
 .diw{
 	background-color: green;
 }
-.diw::before{
-	content: "DIW";
-}
 
 .dws{
 	background-color: blue;
-}
-.dws::before{
-    content: "DWS";
 }
 
 .daw{
 	background-color: purple;
 }
-.daw::before{
-	content: "DAW";
-}
 
 .tutoria{
 	background-color: white;
-}
-.tutoria::before{
-	content: "TUTORIA";
 }
 
 .eie{
 	background-color: orange;
 }
-.eie::before{
-	content: "EIE";
-}
 
 .ingles{
 	background-color: yellow;
 }
-.ingles::before{
-	content: "Anglés Tècnic II-S";
+
+img{
+	width: 70px; 
+	height: 40px;
 }
 
 /* pruebas a partir de aqui */ 
@@ -80,6 +72,7 @@ td{
 	color: black;
 	font-family: Arial;
 }
+
 td:hover > div {
 	visibility: visible;
 }
@@ -89,3 +82,11 @@ div {
 	color: #800000;
 	visibility: hidden;
 }
+a:hover { 
+	text-decoration: none; 
+	background-color: #CC0000;
+	color: #FFF;
+  }
+  a:visited {
+	color: #CCC;
+  }
