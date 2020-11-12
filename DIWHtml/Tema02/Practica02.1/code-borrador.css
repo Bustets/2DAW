@@ -12,6 +12,10 @@ td{
 .dwc{
     background-color: red;
 }
+.dwc::before{
+	content: "DWC";
+}
+
 .diw{
 	background-color: green;
 }
@@ -67,25 +71,70 @@ td{
 	color: black;
 	font-family: Arial;
 }
+.daw span:first-child{
+	display: block;
+	text-align: center;
+	color: black;
+	font-family: sans-serif;
+}
+.daw span:nth-last-child(){
+	display: block;
+	text-align: center;
+	color: black;
+	font-family: Arial;
+}
 .dwc span:first-child{
 	display: block;
 	text-align: center;
 	color: black;
 	font-family: sans-serif;
 }
-
 .dwc span:nth-last-child(){
 	display: block;
 	text-align: center;
 	color: black;
 	font-family: Arial;
 }
-td:hover > div {
-	visibility: visible;
-}
-div {
+
+.tutoria span:first-child{
 	display: block;
 	text-align: center;
-	color: #800000;
-	visibility: hidden;
+	color: black;
+	font-family: sans-serif;
+}
+.dws span:first-child{
+	display: block;
+	text-align: center;
+	color: black;
+	font-family: sans-serif;
+}
+.dws span:nth-last-child(){
+	display: block;
+	text-align: center;
+	color: black;
+	font-family: Arial;
+}
+.ingles span:first-child{
+	display: block;
+	text-align: center;
+	color: black;
+	font-family: sans-serif;
+}
+.ingles span:nth-last-child(){
+	display: block;
+	text-align: center;
+	color: black;
+	font-family: Arial;
+}
+.eie span:first-child{
+	display: block;
+	text-align: center;
+	color: black;
+	font-family: sans-serif;
+}
+.eie span:nth-last-child(){
+	display: block;
+	text-align: center;
+	color: black;
+	font-family: Arial;
 }
