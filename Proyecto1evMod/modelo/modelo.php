@@ -24,17 +24,20 @@ class Cliente{
 		private $direccion;
 		private $email;
 		private $pwd;
+		private $admin;
 
 		static function getAll($link){
 			$consulta="SELECT * FROM clientes";
 			return $result=$link->query($consulta);
 		}
-		function __construct($dni, $nombre, $direccion,$email,$pwd){
+
+		function __construct($dni, $nombre, $direccion,$email,$pwd,$admin){
 			$this->dniCliente=$dni;
 			$this->nombre=$nombre;
 			$this->direccion=$direccion;
 			$this->email=$email;
 			$this->pwd=$pwd;
+			$this->admin=$admin;
 		}
 		function buscar ($link){
 			$consulta="SELECT * FROM clientes where dniCliente='$this->dniCliente'";
@@ -42,8 +45,10 @@ class Cliente{
 			return $result->fetch_assoc();
 		}
 		function autenticar ($link){
-			$consulta="SELECT nombre FROM clientes where dniCliente='$this->dniCliente' and pwd='$this->pwd'";
+			$consulta="SELECT nombre, administrador FROM clientes where dniCliente='$this->dniCliente' and pwd='$this->pwd'";
+			//var_dump($consulta);
 			$result=$link->query($consulta);
+			//var_dump($result);
 			return $result->fetch_assoc();
 		}
 		function insertar ($link){
@@ -90,5 +95,11 @@ class Producto{
 	private $unidades;
 	private $volumen;
 	private $precio;
+
+	static function getAll($link){
+		$consulta="SELECT * FROM productos";
+		return $result=$link->query($consulta);
+	}
+
 	
 }
