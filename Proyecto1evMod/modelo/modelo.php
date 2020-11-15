@@ -31,13 +31,13 @@ class Cliente{
 			return $result=$link->query($consulta);
 		}
 
-		function __construct($dni, $nombre, $direccion,$email,$pwd,$admin){
+		function __construct($dni, $nombre, $direccion,$email,$pwd,$administrador){
 			$this->dniCliente=$dni;
 			$this->nombre=$nombre;
 			$this->direccion=$direccion;
 			$this->email=$email;
 			$this->pwd=$pwd;
-			$this->admin=$admin;
+			$this->admin=$administrador;
 		}
 		function buscar ($link){
 			$consulta="SELECT * FROM clientes where dniCliente='$this->dniCliente'";
@@ -50,11 +50,11 @@ class Cliente{
 			return $result->fetch_assoc();
 		}
 		function insertar ($link){
-			$consulta="INSERT INTO clientes VALUES ('$this->dniCliente','$this->nombre','$this->direccion','$this->email','$this->pwd')";
+			$consulta="INSERT INTO clientes VALUES ('$this->dniCliente','$this->nombre','$this->direccion','$this->email','$this->pwd','$this->administrador')";
 			return $link->query($consulta);
 		}
 		function modificar ($link){
-			$consulta="UPDATE clientes SET nombre='$this->nombre',  direccion='$this->direccion',  email='$this->email', pwd='$this->pwd' WHERE dniCliente='$this->dniCliente'";
+			$consulta="UPDATE clientes SET nombre='$this->nombre',  direccion='$this->direccion',  email='$this->email', pwd='$this->pwd', administrador='$this->administrador' WHERE dniCliente='$this->dniCliente'";
 			return $link->query($consulta);
 		}
 		function borrar ($link){
