@@ -99,5 +99,34 @@ class Producto{
 		return $result=$link->query($consulta);
 	}
 
+	function __construct($idProducto, $nombre, $origen, $foto, $marca, $categoria, $peso, $unidades, $volumen, $precio){
+		$this->idProducto=$idProducto;
+		$this->nombre=$nombre;
+		$this->origen=$origen;
+		$this->foto=$foto;
+		$this->marca=$marca;
+		$this->categoria=$categoria;
+		$this->peso=$peso;
+		$this->unidades=$unidades;
+		$this->volumen=$volumen;
+		$this->precio=$precio;
+	}
+	function buscar ($link){
+		$consulta="SELECT * FROM productos where idProducto='$this->idproducto'";
+		$result=$link->query($consulta);
+		return $result->fetch_assoc();
+	}
+	function insertar ($link){
+		$consulta="INSERT INTO productos VALUES ('$this->idProductos','$this->nombre','$this->origen','$this->foto','$this->marca','$this->categoria','$this->peso','$this->unidades','$this->volumen','$this->precio')";
+		return $link->query($consulta);
+	}
+	function modificar ($link){
+		$consulta="UPDATE productos SET idProductos='$this->idProductos', nombre='$this->nombre', origen='$this->origen', foto='$this->foto', marca='$this->marca', categoria='$this->categoria', peso='$this->peso', unidades='$this->unidades', volumen='$this->volumen', precio='$this->precio')";
+		return $link->query($consulta);
+	}
+	function borrar ($link){
+		$consulta="DELETE FROM productos where idProducto='$this->idProducto'";
+		return $link->query($consulta);
+	}
 	
 }
