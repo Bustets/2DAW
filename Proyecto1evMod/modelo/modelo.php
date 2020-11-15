@@ -46,9 +46,7 @@ class Cliente{
 		}
 		function autenticar ($link){
 			$consulta="SELECT nombre, administrador FROM clientes where dniCliente='$this->dniCliente' and pwd='$this->pwd'";
-			//var_dump($consulta);
 			$result=$link->query($consulta);
-			//var_dump($result);
 			return $result->fetch_assoc();
 		}
 		function insertar ($link){

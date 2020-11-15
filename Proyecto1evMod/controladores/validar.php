@@ -1,6 +1,5 @@
 <?php
 
-//var_dump($_POST);
 if(isset($_POST['enviar'])){
     $dni = $_POST['dni'];
     $pass = $_POST['pass'];
@@ -9,7 +8,8 @@ if(isset($_POST['enviar'])){
     $link = new Bd;
     $cliente = new Cliente($dni,'','','', $pass,'');
     $result = $cliente->autenticar($link->link);
-    //var_dump($result['nombre']);
+
+
     if($result == null){
         header ('Location: login.php');
         echo 'El usuario no existe';//no sale 
@@ -24,7 +24,7 @@ if(isset($_POST['enviar'])){
         $_SESSION['total']=0;
         header ('Location: principal.php');
     }
-    
+
 
 }
 
