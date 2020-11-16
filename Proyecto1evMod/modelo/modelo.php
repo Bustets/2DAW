@@ -68,7 +68,7 @@ class Pedido{
 	private $fecha;
 	private $dirEntrega;
 	private $nTarjeta;
-	private $fechaCacucidad;
+	private $fechaCaducidad;
 	private $matriculaRepartidor;
 	private $dniCliente;
 
@@ -79,6 +79,21 @@ class LineasPedido{
 	private $nLinea;
 	private $idProducto;
 	private $cantidad;
+
+	static function getAll($link){
+		$consulta="SELECT * FROM lineasPedidos";
+		return $result=$link->query($consulta);
+	}
+
+	function __construct($idPedido, $nLinea, $idProducto, $cantidad){
+		$this->idPedido=$idPedido;
+		$this->nLineas=$nLinea;
+		$this->idProducto=$idProducto;
+		$this->cantidad=$cantidad;
+	}
+
+	
+
 
 }
 class Producto{
