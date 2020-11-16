@@ -24,7 +24,7 @@ class Cliente{
 		private $direccion;
 		private $email;
 		private $pwd;
-		private $admin;
+		private $administrador;
 
 		static function getAll($link){
 			$consulta="SELECT * FROM clientes";
