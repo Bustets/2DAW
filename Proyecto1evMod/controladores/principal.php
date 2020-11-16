@@ -10,4 +10,6 @@ require ('../vistas/cabecera.html');
 
 require ('../vistas/vistaProductos.php');
 
-}else header('Location:../vistas/login.php');
+}else {
+    header('Location:../vistas/login.php');
+}

@@ -112,7 +112,7 @@ class Producto{
 		$this->precio=$precio;
 	}
 	function buscar ($link){
-		$consulta="SELECT * FROM productos where idProducto='$this->idproducto'";
+		$consulta="SELECT * FROM productos where idProducto='$this->idProducto'";
 		$result=$link->query($consulta);
 		return $result->fetch_assoc();
 	}
