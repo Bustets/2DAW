@@ -5,9 +5,9 @@ require ('../modelo/modelo.php');
 if (isset($_SESSION['nombre'])){
     $link = new Bd;
     $idPedido = $_GET['idPedido'];
-    $pedido = new LineasPedido($idPedido,'','','');
-    //
-    //$infoPedido = $pedido->buscar($link->link); nos falta la funcion en el constructor 
+    $Pedido = new LineasPedido($idPedido,'','','');
+    //No se si esto va a estar bien.
+    $infoPedido = $pedido->buscar($link->link); //nos falta la funcion en el constructor 
     //
     require ('../vistas/vistaCarrito.php');
 

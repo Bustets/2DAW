@@ -91,9 +91,16 @@ class LineasPedido{
 		$this->idProducto=$idProducto;
 		$this->cantidad=$cantidad;
 	}
-
-	
-
+//NO se si esta funcione esta bien
+	function buscar ($link){
+		$consulta="SELECT * FROM lineasProducto where idPedido='$this->idPedido'";
+		$result=$link->query($consulta);
+		return $result->fetch_assoc();
+	}
+	function insertar ($link){
+		$consulta="INSERT INTO lineaProducto VALUES ('$this->idPedido','$this->nLinea','$this->idProducto','$this->cantidad')";
+		return $link->query($consulta);
+	}
 
 }
 class Producto{
