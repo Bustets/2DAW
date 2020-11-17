@@ -133,13 +133,18 @@ div {
 	color:black;
 	visibility: hidden;
 }
-a:hover { 
+/*a:hover { 
 	text-decoration: none; 
 	color: #FFF;
 	
-  }
-  a:visited, a:link {
+  }*/
+a:visited, a:link {
 	color: black;
 	font-weight: bold;
 	text-decoration:none
   }
+/*img {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+}*/
