@@ -46,7 +46,6 @@ img{
 	height: 40px;
 }
 
-/* pruebas a partir de aqui */ 
 .diw span:first-child{
 	display: block;
 	text-align: center;
@@ -136,9 +135,11 @@ div {
 }
 a:hover { 
 	text-decoration: none; 
-	background-color: black;
 	color: #FFF;
+	
   }
-  a:visited {
-	color: #CCC;
+  a:visited, a:link {
+	color: black;
+	font-weight: bold;
+	text-decoration:none
   }
