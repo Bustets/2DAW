@@ -14,7 +14,7 @@
 		$error['nombre']="No pude estar en blanco"; 
 	}else $valor['nombre']=$_post['nombre'];
 
-	echo "<td><input type='text'".value=".$valor['nombre']."name='nombre'>".$error['nombre'].</td>";
+	echo "<td><input type=text value=".$valor['nombre']."name=nombre>".$error['nombre']."</td>";
 
 	
 
