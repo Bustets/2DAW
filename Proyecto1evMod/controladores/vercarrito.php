@@ -1,14 +1,36 @@
 <?php
 session_start();
-
 require ('../modelo/modelo.php');
-if (isset($_SESSION['nombre'])){
-    $link = new Bd;
-    $idPedido = $_GET['idPedido'];
-    $Pedido = new LineasPedido($idPedido,'','','');
-    //No se si esto va a estar bien.
-    $infoPedido = $pedido->buscar($link->link); //nos falta la funcion en el constructor 
-    //
+$precioTotal=0;
+if (isset($_POST)){
+    if(isset($_POST['comprar'])){
+    $idProducto = $_POST['idProducto'];
+    $nombre = $_POST['nombre'];
+    $precio = $_POST['precio'];
+    $cantidad = $_POST['cantidad'];
+    $producto = array ( //He creado un array asociativo  dado que van todos ligados en la misma sesion del post 
+        "idProducto" => $idProducto,
+        "nombre" => $nombre,
+        "precio" => $precio,
+        "cantidad" => $cantidad
+    );
+
+    
+
+    if(isset($_SESSION['carrito'])){
+        $carrito = $_SESSION['carrito'];
+        $carrito[] = $producto;
+        $_SESSION['carrito'] = $carrito;
+        
+
+    }else{
+        $carrito[] = $producto;
+        $_SESSION['carrito'] = $carrito;
+    }
+    $total = $_SESSION['total'] + $producto['precio'];
+    $_SESSION['total'] = $total;
+
+    }
     require ('../vistas/vistaCarrito.php');
 
 }else{
