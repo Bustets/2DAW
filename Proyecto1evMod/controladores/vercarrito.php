@@ -15,8 +15,6 @@ if (isset($_POST)){
         "cantidad" => $cantidad
     );
 
-    
-
     if(isset($_SESSION['carrito'])){
         $carrito = $_SESSION['carrito'];
         $carrito[] = $producto;
