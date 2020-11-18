@@ -1,0 +1,32 @@
+body  {
+    margin: 50px;
+    padding: 50px;
+    background: #d95500;
+    font-family: sans-serif, arial, helvetica;
+    }
+   
+.contenedor {
+    width: 900px;
+    margin: 0 auto;
+}
+.contenido{
+    background: #ffa870;
+    display: table;
+}
+.barra{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.barra a{
+    font-weight: bolder;
+    text-decoration: none;
+}
+.barra a:hover{
+    background-color: gold;
+    font-style:italic;
+    text-decoration: none;
+}
+.barra a:visited{
+    color: black;
+}
