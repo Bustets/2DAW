@@ -148,3 +148,21 @@ a:visited, a:link {
 	right: 0px;
 	bottom: 0px;
 }*/
+
+@font-face {
+    font-family: "Kimberley";
+    src: url(kimberley.ttf) format("truetype");
+}
+h1{
+	font-family: "Kimberley", sans-serif; 
+}
+
+@font-face {
+	font-family: "Cripsy";
+	src: url(Cripsy.ttf) format("truetype");
+}
+
+h3{
+	font-family: "Cripsy", sans-serif;
+	font-size: 15px;
+}
