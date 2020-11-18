@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: nowrap;
 }
-.flex-contenedor {
+.flex-contenedor > img {
     background-color: #f1f1f1;
     width: 100px;
     margin: 10px;
