@@ -133,21 +133,17 @@ div {
 	color:black;
 	visibility: hidden;
 }
-/*a:hover { 
-	text-decoration: none; 
-	color: #FFF;
-	
-  }*/
+
+div img{
+	visibility: visible;
+	float: right;
+}
+
 a:visited, a:link {
 	color: black;
 	font-weight: bold;
 	text-decoration:none
   }
-/*img {
-	position: fixed;
-	right: 0px;
-	bottom: 0px;
-}*/
 
 @font-face {
     font-family: "Kimberley";
@@ -162,7 +158,7 @@ h1{
 	src: url(Cripsy.ttf) format("truetype");
 }
 
-h3{
+h2{
 	font-family: "Cripsy", sans-serif;
 	font-size: 15px;
 }
