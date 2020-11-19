@@ -72,6 +72,32 @@ class Pedido{
 	private $matriculaRepartidor;
 	private $dniCliente;
 
+	function __construct($idPedido, $fecha, $dirEntrega, $nTarjeta, $fechaCaducidad, $matriculaRepartidor, $dniCliente){
+		$this->idPedido=$idPedido;
+		$this->fecha=$fecha;
+		$this->dirEntrega=$dirEntrega;
+		$this->nTarjeta=$nTarjeta;
+		$this->fechaCaducidad=$fechaCaducidad;
+		$this->matriculaRepartidor=$matriculaRepartidor;
+		$this->dniCliente=$dniCliente;
+	}
+
+	function getPedidos($link){
+		$consulta="SELECT * FROM pedidos where dniCliente='$this->dniCliente'";
+		return $result=$link->query($consulta);
+	}
+	function insertar ($link){
+		$consulta="INSERT INTO pedidos VALUES ('$this->idPedido','$this->fecha','$this->dirEntrega','$this->nTarjeta','$this->fechaCaducidad','$this->matriculaRepartidor','$this->dniCliente')";
+		return $link->query($consulta);
+	}
+	static function maxPedido($link){
+		$consulta="SELECT max(idPedido) as idPedido FROM pedidos";
+		$result=$link->query($consulta);
+		return $result->fetch_assoc();
+	}
+
+
+
 }
 class LineasPedido{	
 
@@ -80,25 +106,20 @@ class LineasPedido{
 	private $idProducto;
 	private $cantidad;
 
-	static function getAll($link){
-		$consulta="SELECT * FROM lineasPedidos";
-		return $result=$link->query($consulta);
-	}
-
 	function __construct($idPedido, $nLinea, $idProducto, $cantidad){
 		$this->idPedido=$idPedido;
 		$this->nLineas=$nLinea;
 		$this->idProducto=$idProducto;
 		$this->cantidad=$cantidad;
 	}
-//NO se si esta funcione esta bien
-	function buscar ($link){
-		$consulta="SELECT * FROM lineasProducto where idPedido='$this->idPedido'";
+
+	function getLineas($link){
+		$consulta="SELECT * FROM lineaspedidos where idPedido='$this->idPedido'";
 		$result=$link->query($consulta);
 		return $result->fetch_assoc();
 	}
 	function insertar ($link){
-		$consulta="INSERT INTO lineaProducto VALUES ('$this->idPedido','$this->nLinea','$this->idProducto','$this->cantidad')";
+		$consulta="INSERT INTO lineaspedidos VALUES ('$this->idPedido','$this->nLinea','$this->idProducto','$this->cantidad')";
 		return $link->query($consulta);
 	}
 
