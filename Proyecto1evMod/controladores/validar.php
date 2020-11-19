@@ -16,7 +16,7 @@ if(isset($_POST['enviar'])){
     }
 
     if($result['administrador']==1){
-       header ('Location: administracion.php');
+       header ('Location: ../vistas/administracion.php');
     }else{
         session_start();
         $_SESSION['nombre']=$result['nombre'];
