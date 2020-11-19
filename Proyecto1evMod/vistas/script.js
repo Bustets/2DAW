@@ -53,7 +53,7 @@ function cargarPedidos(){
       success: function (respuesta) {
           for (var key in respuesta) {
               $("#tabla_Pedido").append("<tr><td class='idPedido'>" + respuesta[key].idPedido + "</td><td id='dniCliente'>" + respuesta[key].dniCliente + "</td><td id='fecha'>" + respuesta[key].fecha + 
-              "</td> <td><button class='detallePedido'>Detalle</button><button class='editarPedido'>Editar</button><button class='borrarPedido'>Borrar</button></td></tr>");///modificar
+              "</td> <td><button class='detallePedido'>Detalle</button><button class='editarPedido'>Editar</button><button class='borrarPedido'>Borrar</button></td></tr>");
           }
       },
 
