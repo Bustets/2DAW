@@ -108,7 +108,7 @@ class LineasPedido{
 
 	function __construct($idPedido, $nLinea, $idProducto, $cantidad){
 		$this->idPedido=$idPedido;
-		$this->nLineas=$nLinea;
+		$this->nLinea=$nLinea;
 		$this->idProducto=$idProducto;
 		$this->cantidad=$cantidad;
 	}

@@ -14,9 +14,9 @@ $pedido->insertar($link->link);
 
 $nLinea = 1;
 foreach($carrito as $producto){
-    $lineaPedido = new LineasPedido($idPedido, $nLinea, $carrito->$idProducto, $carrito->$cantidad);
-        $lineaPedido->insertar($link->link);
-        $nLinea++;    
+    $lineaPedido = new LineasPedido($idPedido, $nLinea, $producto['idProducto'], $producto['cantidad']);
+    $lineaPedido->insertar($link->link);
+    $nLinea++;  
 }
 
 
