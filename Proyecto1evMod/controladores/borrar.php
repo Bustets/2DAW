@@ -1,6 +1,5 @@
 <?php
 session_start();
-include "vistas/login.html";
 if (isset($_SESSION['nombre'])){
 	require "../modelo/modelo.php";
 	$link=new Bd;
@@ -15,4 +14,4 @@ if (isset($_SESSION['nombre'])){
 	$dato.="<a href='login.php'> Volver </a>";
 	require "vistas/mensaje.php";
 }
-//include "vistas/fin.html";
+

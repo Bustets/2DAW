@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../vistas/login.html";
+
 if (isset($_SESSION['nombre'])){
 	require "../modelo/modelo.php";
 	if (isset($_POST['enviarModificar'])) {
@@ -28,4 +28,3 @@ if (isset($_SESSION['nombre'])){
 	require "vistas/mensaje.php";
 }
 	
-//include "vistas/fin.html";
