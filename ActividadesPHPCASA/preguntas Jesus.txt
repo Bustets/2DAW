@@ -1,0 +1,16 @@
+Abre el inpector -> red 
+
+lista de clientes. 
+
+solicitud, respuesta. 
+
+	-añadir un cliente.
+
+enseñame el codigo donde se hace esta respuesta. (ojo a duplicidades con el DNI).
+
+Donde recojes esa respuesta.
+
+Vamos a editar.
+	Insetar un cliente que tenga ya el dni.(Para que de error).
+vamos a Borrar.
+
