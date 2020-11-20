@@ -16,7 +16,8 @@ $(document).ready(function () {
 
       cargarClientes();
       cargarPedidos();
-      borrarCliente();//
+      borrarCliente();
+      editarCliente();
 
 });
 function cargarClientes(){
@@ -36,9 +37,10 @@ function cargarClientes(){
             }
             abrirFormularioanyadir();
             borrarCliente();
-            $(".editarCliente").click(function(){
+            editarCliente();
+            /*$(".editarCliente").click(function(){
                 $(".modalEditar").show();
-            });
+            });*/
         },
 
 
@@ -141,5 +143,58 @@ function cargarPedidos(){
             console.log( "La solicitud ha fallado: " +  textStatus + errorThrown);
         });
     });
-
+}
+function editarCliente(){
+    $(".editarCliente").click(function(){
+        $(".modalEditar").show();
+        var fila=$(this).parent().parent();
+        var dni=fila.find('.dniCliente').text(); 
+        console.log(dni);
+        $.ajax({
+            url: "../controladores/getClientes.php", 
+            type: "POST",
+            dataType: "json",
+            success: function (respuestaDatos) {
+                console.log(respuestaDatos);
+                for (var key in respuestaDatos) {
+                    if (respuestaDatos[key].dniCliente==dni) {
+                        $('#dniEditar').val(respuestaDatos[key].dniCliente);
+                        $('#nombreEditar').val(respuestaDatos[key].nombre);
+                        $('#direccionEditar').val(respuestaDatos[key].direccion);
+                        $('#emailEditar').val(respuestaDatos[key].email);
+                        }
+                }
+             },
+            error: function (jqXHR, textStatus, errorThrown) {
+             console.log("La solicitud ha fallado: " + textStatus + errorThrown); //
+            }      
+        });
+        $("#editCli").click(function(){
+                var objeto_mod = {  
+                    dniCliente:$('#dniEditar').val(),
+                    nombre:$('#nombreEditar').val(),
+                    direccion:$('#direccionEditar').val(),
+                    email:$('#emailEditar').val(),
+                    pwd:$('#passEditar').val(),
+                    administrador:$('#adminEditar').val(),
+                };    
+                $.ajax({
+                    url:"../controladores/modificar.php",
+                    type:"POST",
+                    data: objeto_mod,
+                    dataType:"json",
+                    }).done(function(respuesta){
+                    if(respuesta){
+                        alert("Dato actualizado");
+                        $(fila).after("<tr><td class='dniCliente'>"+objeto_mod.dniCliente+"</td><td calass='nombreCli'>"+objeto_mod.nombre+"</td> <td><button id='editarCliente'>Editar</button><button class='borrarCliente'>Borrar</button></td></tr>")
+                        $(fila).remove();
+                        $("#modalEditar").hide();
+                    }else{ 
+                        alert("Error al acctualizar");
+                    } 
+                    }).fail(function( jqXHR, textStatus, errorThrown ) {
+                    console.log( "La solicitud ha fallado: " +  textStatus + errorThrown);
+                });
+            });
+    });
 }

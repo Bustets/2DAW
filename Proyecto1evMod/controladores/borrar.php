@@ -6,4 +6,4 @@
 	
 	echo json_encode($dato);
 
-
+	$link->link->close();

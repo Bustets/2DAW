@@ -1,0 +1,21 @@
+.modalAnyadir{
+    display: none; 
+    width: 400px;
+    height: 150px;
+    position: absolute;
+    background-color:rgb(80, 165, 80);
+    left: 50px;
+    top: 50px;
+    z-index: 10;
+ }
+ .modalEditar{
+    display: none; 
+    width: 400px;
+    height: 150px;
+    position: absolute;
+    background-color: rgb(80, 165, 80);
+    left: 50px;
+    top: 50px;
+    z-index: 10;
+ }
+
