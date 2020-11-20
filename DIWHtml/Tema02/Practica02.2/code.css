@@ -17,6 +17,7 @@ body  {
 .contenido{
     background: #ffa870;
     text-align: center;
+    height: 500px;
 }
 .barra{
     list-style-type: none;
@@ -35,7 +36,7 @@ body  {
 .barra a:visited{
     color: black;
 }
-.pollo, .ternera, .mixto{
+.pollo, .ternera, .mixto, .vege{
     width: 200px; 
     height: 200px;
     float: left;
@@ -54,7 +55,7 @@ body  {
     display: none;
     
 }
-.pollo:hover >span, .ternera:hover >span, .mixto:hover >span{
+.pollo:hover >span, .ternera:hover >span, .mixto:hover >span, .vege:hover >span{
     height: 200px;
     width: 200px;
     display: block;
@@ -65,6 +66,9 @@ body  {
 }
 footer{
     clear: left;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
 }
 .vege img{
     width: 150px;
@@ -85,6 +89,12 @@ footer{
     width: 20px; 
     height: 20px;
 }
+#kebab{
+    width: 900px;
+    margin: 0 auto;
+    height: 250px;
+}
+
 @font-face {
     font-family: "Kimberley";
     src: url(kimberley.ttf) format("truetype");
