@@ -3,15 +3,20 @@ body  {
     padding: 50px;
     background: #d95500;
     font-family: sans-serif, arial, helvetica;
+    background-image: url(kebab.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
     }
    
 .contenedor {
-    width: 900px;
     margin: 0 auto;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 .contenido{
     background: #ffa870;
-    display: table;
+    text-align: center;
 }
 .barra{
     list-style-type: none;
@@ -29,4 +34,71 @@ body  {
 }
 .barra a:visited{
     color: black;
+}
+.pollo, .ternera, .mixto{
+    width: 200px; 
+    height: 200px;
+    float: left;
+}
+
+.pollo img, .ternera img, .mixto img{
+    width: 150px; 
+    height: 150px;
+    display: block;
+}
+
+
+.pollo>span, .ternera>span, .mixto>span{
+    height: 200px;
+    width: 200px;
+    display: none;
+    
+}
+.pollo:hover >span, .ternera:hover >span, .mixto:hover >span{
+    height: 200px;
+    width: 200px;
+    display: block;
+}
+.pollo:hover img, .pollo:hover img, .ternera:hover img, .mixto:hover img{
+    z-index: 10;
+    display: none;
+}
+footer{
+    clear: left;
+}
+.vege img{
+    width: 150px;
+    height: 150px;
+    display: block;
+}
+.vege>span{
+    height: 200px;
+    width: 200px;
+    display: none;
+}
+.vege:hover img{
+    z-index: 10;
+    display: none;
+
+}
+.telef img, .ubicacion img{
+    width: 20px; 
+    height: 20px;
+}
+@font-face {
+    font-family: "Kimberley";
+    src: url(kimberley.ttf) format("truetype");
+}
+h1{
+	font-family: "Kimberley", sans-serif; 
+}
+
+@font-face {
+	font-family: "Cripsy";
+	src: url(Cripsy.ttf) format("truetype");
+}
+
+h2{
+	font-family: "Cripsy", sans-serif;
+	font-size: 15px;
 }

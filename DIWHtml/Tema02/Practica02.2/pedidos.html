@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="code.css">
 </head>
 <body>
+    
     <div class="contenedor">
         <div class="contenido">
             <h1>Suleyman's Dürüm Food Truck</h1>
@@ -20,28 +21,28 @@
             </p>
             <form action="mailto:pedidos@foofoods.com" method="POST" autocomplete="on">
                 <h3>Datos de Contacto</h3><br>
-                <label for="name">Nombre:</label>
+                <label for="name">Nombre:</label><br>
                 <input type="text" id="name" name="name" required><br><br>
-                <label for="apellido">Apellido:</label>
+                <label for="apellido">Apellido:</label><br>
                 <input type="text" id="apellido" name="apellido" required><br><br>
-                <label for="email">Correo Electrónico:</label>
+                <label for="email">Correo Electrónico:</label><br>
                 <input type="email" id="email" name="email" required><br><br>
-                <label for="telefono">Teléfono</label>
+                <label for="telefono">Teléfono</label><br>
                 <input type="tel" id="telefono" name="telefono" pattern="[6-9]{1}[0-9]{2}-[0-9]{3}-[0-9]{3}" required><br><br>
                 <h3>Dürum tipo</h3>
-                <label for="DurumPollo">Pollo</label>
+                <label for="DurumPollo">Pollo</label><br>
                 <input type="number" id="NumeroPollo" value="0" min="1" max="10" autocomplete="off"><br>
-                <label for="DurumTernera">Ternera</label>
+                <label for="DurumTernera">Ternera</label><br>
                 <input type="number" id="NumeroTernera" value="0" min="1" max="10" autocomplete="off" ><br>
-                <label for="DurumMixto">Mixto</label>
+                <label for="DurumMixto">Mixto</label><br>
                 <input type="number" id="NumeroMixto" value="0" min="1" max="10" autocomplete="off"><br>
-                <label for="DurumMixto">Vegetariano</label>
+                <label for="DurumMixto">Vegetariano</label><br>
                 <input type="number" id="NumeroVegetariano" value="0" min="1" max="10" autocomplete="off"><br>
-                <label for="Npicante">Nivel de Picante</label>
+                <label for="Npicante">Nivel de Picante</label><br>
                 <input type="range" name="Npicante"><br><br>
                 <label for="infoAdicional">Información Adicional</label><br>
                 <textarea placeholder="Alergias,...." name="infoAdicional"></textarea><br><br>
-                <label for="pagar">¿Como va a pagar?</label>
+                <label for="pagar">¿Como va a pagar?</label><br>
                 <select name="pagar" required>
                     <option>Efectivo</option>
                     <option>Tarjeta</option>
@@ -50,7 +51,7 @@
                 <select name="envuelto">
                     <option>Para llevar</option>
                     <option>En Plato</option>
-                </select>
+                </select><br>
                 <input type="checkbox" name="condiciones" required>
             <label for="condiciones">Acepto las condiciones de uso del servicio</label><br><br>
             <input type="submit" value="Enviar">
@@ -59,7 +60,7 @@
             <div>
                 <footer style="text-align: center;">&copy; 2020 Pablo Bustos</footer>
             </div>
-        </div>    
-    </div>
+        </div>   
+    </div>   
 </body>
 </html>
