@@ -17,7 +17,7 @@ body  {
 .contenido{
     background: #ffa870;
     text-align: center;
-    height: 500px;
+   /* height: 500px;*/
 }
 .barra{
     list-style-type: none;
@@ -94,6 +94,13 @@ footer{
     margin: 0 auto;
     height: 250px;
 }
+.otraPagina{
+    display: inline-block;
+}
+.actualPagina{
+    display: inline-block;
+    background-color: #C8231A;
+}
 
 @font-face {
     font-family: "Kimberley";
@@ -110,5 +117,5 @@ h1{
 
 h2{
 	font-family: "Cripsy", sans-serif;
-	font-size: 15px;
+	font-size: 30px;
 }
