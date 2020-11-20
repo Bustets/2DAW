@@ -82,6 +82,12 @@ class Pedido{
 		$this->dniCliente=$dniCliente;
 	}
 
+	static function getAll($link){
+		$consulta="SELECT * FROM pedidos";
+		return $result=$link->query($consulta);
+	}
+
+
 	function getPedidos($link){
 		$consulta="SELECT * FROM pedidos where dniCliente='$this->dniCliente'";
 		return $result=$link->query($consulta);
