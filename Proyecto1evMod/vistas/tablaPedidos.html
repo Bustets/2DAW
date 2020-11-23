@@ -13,27 +13,33 @@
             <a href="body.html"><button id="botonClientes">Gestion Cliente</button></a>
             <a href="tablaPedidos.html"><button id="botonPedidos">Gestion Pedidos</button></a>
             <section id="clientes">
-                <button id="anyadirPedido">Añadir Nuevo</button>
+                <button id="anyadirPedidoNuevo">Añadir Nuevo</button>
                 <table id="tabla_Pedidos">
                     <thead><tr><th>ID</th><th>Cliente</th><th>Fecha</th><th>Operaciones</th></tr></thead>
                 </table>
             </section>
         </div>
         <div class="modalAnyadir">
-            <form action="">
-                Fecha<input  id="fecha" type="date">
+            <form>
+                Fecha<input  id="fecha_Anyadir" type="date">
                 Cliente<select name="cliente" id="selectCliente"></select>
+
+                <input name="" id="dirEntregaCli" type="hidden" value="12345">
+                <input name="" id="nTarjetaCli" type="hidden" value="12345">
+                <input name="" id="fechaCaducidadCli" type="hidden" value="12345">
+                <input name="" id="matriculaRepartidorCli" type="hidden" value="12345">
+
+                <input type="button" id="anyadirPedido" value="añadir">
+                <input type="button" class="cerrarModal" value="cerrar">
             </form>
-            <button id="anyadirPedido">Añadir</button>
-            <button class="cerrarModal">Cerrar</button>
         </div>
         <div class="modalEditar">
             <form action="">
                 Fecha<input  id="fecha" type="date">
                 Cliente<select name="cliente" id="selectCliente"></select>
+                <button id="editPedido">Editar</button>
+                <button class="cerrarModal">Cerrar</button>
             </form>
-            <button id="editPedido">Editar</button>
-            <button class="cerrarModal">Cerrar</button>
         </div>
     </body>
 </html>

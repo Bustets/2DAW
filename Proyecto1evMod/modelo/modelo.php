@@ -102,6 +102,11 @@ class Pedido{
 		return $result->fetch_assoc();
 	}
 
+	function borrar($link){
+        $consulta="DELETE FROM pedidos where idPedido='$this->idPedido'";
+        return $link->query($consulta);
+    }
+
 
 
 }
@@ -127,6 +132,12 @@ class LineasPedido{
 	function insertar ($link){
 		$consulta="INSERT INTO lineaspedidos VALUES ('$this->idPedido','$this->nLinea','$this->idProducto','$this->cantidad')";
 		return $link->query($consulta);
+	}
+
+	function buscar ($link){
+		$consulta="SELECT * FROM lineaspedidos where idPedido='$this->idPedido'";
+		$result=$link->query($consulta);
+		return $result->fetch_assoc();
 	}
 
 }
