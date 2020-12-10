@@ -2,11 +2,22 @@ $(document).ready(function(){
 
     console.log("juary ok");
 
-    cargo_preguntas()
+    cargo_preguntas() // cargo preguntas
 
-    $("#ok").on("click", function(){
-        comprouebo_preguntas();
+    $("#ok").on("click", function(){ // si ok 
+        compruebo_preguntas(); // compruebo preguntas
+        clearTimeout(temporizador); //paro temporizador
     });
+    $("#borrar").on("click",function(){ // borrar todo
+        $("#preguntas").html(""); // impio articles
+        $("#acertadas").html(""); // 
+        cargo_preguntas(); // cargo preguntas de nuevo
+    });
+    var temp=0;
+    var temporizador = setInterval(function(){ // creo el temporizador
+    temp++;
+    $("#tiempo").html("Tiempo : " + temp);
+    },100);
 
 });
 
@@ -22,14 +33,11 @@ function cargo_preguntas(){
     })
     .done(function(datos){
 
-        console.log(datos);
-        for(i=0; i<datos.preguntas.length; i++){
-            $("#preguntas").append("<div>"+ datos.preguntas[i].pregunta + "</div>");
-            console.log(datos.preguntas[i].pregunta);
-            $.each(datos.preguntas[i].respuesta, function(key, value){
-                console.log("key : " +key+ "Value :"+ value);
-                var radio= "<input type = 'radio' classe='respuesta"+i+"' name= 'respuesta "+i+" ' value='"+key+"'>"+key+"=" + value +" </input>";
-                $("#preguntas").append(radio);
+        for(i=0; i<datos.preguntas.length; i++){ // añado un id para cambiar color
+            $("#preguntas").append("<div id='pregunta"+i+"'> "+ datos.preguntas[i].pregunta + "</div>"); 
+            $.each(datos.preguntas[i].respuesta, function(key, value){ // itero por clave valor
+                var radio= "<input type = 'radio' class='respuesta"+i+"' name= 'respuesta "+i+" ' value='"+key+"'>"+key+"=" + value +" </input>";
+                $("#preguntas").append(radio);// añado una clase 
             });
         }
     
@@ -43,7 +51,7 @@ function cargo_preguntas(){
     
 }
 
-function comprouebo_preguntas(){
+function compruebo_preguntas(){
 
     $.ajax({
         url: "preguntas.json",
@@ -51,11 +59,18 @@ function comprouebo_preguntas(){
         dataType: "json",
     })
     .done(function(datos){
-
+        var correctas = 0;
         for(i=0; i<datos.preguntas.length; i++){
-            console.log(datos.preguntas[i].correcta);
-            console.log($(".respuesta"+i+":checked").val());
-        }
+            var correcta = datos.preguntas[i].correcta; // correcta
+            var elegida = ($(".respuesta"+i+":checked").val());
+            if (correcta == elegida){
+                $("#pregunta"+i).css({"background-color" : "green"});
+                correctas++;
+            }else{
+                $("#pregunta"+i).css({"background-color" : "red"});
+            }
+        };
+        $("#acertadas").html("Acertadas : " + correctas);
         
         //determinar que ha elegido el usuario
         //comparar con el correcto
@@ -64,5 +79,5 @@ function comprouebo_preguntas(){
     })
     .fail(function(jqXHR, textStatus, errorThrown){
         console.log("ERROR")
-    })
+    });
 }
