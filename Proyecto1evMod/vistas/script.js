@@ -15,8 +15,6 @@ $(document).ready(function () {
     });
 
 
-    /////Lo que va aqui lo pongo ahora 
-
     $("#anyadirPedido").click(function () {
         anyadirPedido();
     });
@@ -25,12 +23,11 @@ $(document).ready(function () {
         $(".modalAnyadir").hide();
     })
 
-    ////entre estas es lo que añado ahora al codigo
 
     cargarClientes();
     cargarPedidos();
-    /*borrarCliente();
-    editarCliente();*/
+    /*borrarCliente();*/
+    editarCliente();
 
 });
 function cargarClientes() {
@@ -82,7 +79,7 @@ function cargarPedidos() {
                     sumaValorIDpedido = parseInt(respuesta[key].idPedido) + 1;
                 }
 
-             /////Lo que va aqui lo pongo ahora 
+             
 
     $("#anyadirPedidoNuevo").click(function () {
         anyadirPedido(sumaValorIDpedido);
@@ -92,8 +89,6 @@ function cargarPedidos() {
     borrarPedido();
     cargarLineaPedidos();
     
-
-    ////entre estas es lo que añado ahora al codigo
         
         },
 
@@ -229,7 +224,6 @@ function editarCliente() {
     });
 }
 
-//////////Nuevo desde Aqui//////////
 function anyadirPedido(sumaValorIDpedido) {
 
     $(".modalAnyadir").show();
