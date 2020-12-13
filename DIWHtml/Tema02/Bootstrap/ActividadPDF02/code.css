@@ -1,3 +1,25 @@
-.row .col-sm-12{
+.green{
     background-color: green;
+    height: 50px;
+}
+.pink{
+    background-color: rgb(194, 46, 162);
+    height: 50px;
+}
+.red{
+    background-color: red;
+}
+.blue{
+    background-color: blue;
+    height: 80px;
+}
+.salmon{
+    background-color: salmon ;
+    height: 150px;
+}
+.footer{
+    height: 15px;
+}
+div{
+    grid-row-gap: 1px;
 }
