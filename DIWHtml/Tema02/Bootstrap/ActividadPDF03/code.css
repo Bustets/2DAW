@@ -1,0 +1,25 @@
+.green{
+    background-color: green;
+    
+}
+.cornflowerblue{
+    background-color: cornflowerblue;
+}
+.grin{
+    background-color: darkgrey;
+}
+.blue{
+    background-color: rgb(0, 204, 255);
+}
+.orange{
+    background-color: orange;
+}
+.footer{
+    font-size: 10px;
+    height: 15px;
+    border: 1px solid black;
+}
+.container{
+    text-align: center;
+}
+
