@@ -20,7 +20,10 @@
 .footer{
     height: 15px;
 }
-div{
-    grid-row-gap: 1px;
+/*div{
+    grid-row-gap: 1px solid black;
+}*/
+.container div{
+    border: 2px solid white;
 }
 
