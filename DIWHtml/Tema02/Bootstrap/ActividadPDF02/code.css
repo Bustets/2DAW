@@ -21,7 +21,7 @@
     height: 15px;
 }
 /*div{
-    grid-row-gap: 1px solid black;
+    grid-row-gap: 1px;
 }*/
 .container div{
     border: 2px solid white;
