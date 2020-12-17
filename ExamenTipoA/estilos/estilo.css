@@ -1,0 +1,19 @@
+div, span {
+    margin: 8px;
+    padding: 2px;
+    border: solid 1px;
+}
+
+#modal {
+
+    display: none;
+
+}
+
+label.error {
+    color: darkred;
+    background-color: lightpink;
+    border: solid 1px; 
+    padding-left: 5px;
+    margin-left: 5px; 
+}

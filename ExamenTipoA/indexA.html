@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EXAMEN A</title>
+    <link href="estilos/estilo.css" rel="stylesheet" type="text/css">
+    <script src="librerias/jquery-3.4.1.min.js"></script>
+    <script src="librerias/jquery.validate.min.js"></script>
+    <script src="codeA.js"></script>
+  </head>
+<body>
+<button id="abrir_modal">Nueva Pelicula</button>
+<div id="modal">
+      <form id="peliculas">
+        <h3>Pelicula :</h3>
+        <label for="titulo">Titulo</label>
+        <input id="titulo" name="titulo" type="text"><br>
+        <label for="anyo">Anyo</label>
+        <input id="anyo" name="anyo" type="text"><br>
+        <label for="director">Director</label>
+        <input id="director" name="director" type="text"><br>
+        <label for="selector">
+          Selecciona una opción:
+        </label>
+        <select id="genero_peli" name="genero">
+          <option class="genero" value="">Valor por defecto</option>
+          <option class="genero" value="Comedia">Comedia</option>
+          <option class="genero" value="Drama">Drama</option>
+          <option class="genero" value="Thriler">Thriler</option>
+        </select><br>
+        <label for="actor1">Actor 1</label>
+        <input id="actor1" name="actor1" type="text"><br>
+        <label for="actor2">Actor 2</label>
+        <input id="actor2" name="actor2" type="text"><br>
+        <input type="submit" id="enviar_carta" value="Envia">
+      </form>
+    <button id="cerrar_modal">Cerrar modal</button>  
+ </div>
+<div id="lista_pelis"><h2>Peliculas nominadas</h2></div>
+</body>
+</html>
