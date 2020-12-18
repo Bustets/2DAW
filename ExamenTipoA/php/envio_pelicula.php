@@ -10,7 +10,8 @@ $actor2 = $_POST["actor2"];
 // El script devuelve alatoriamente 'error' o el 'id' de la nueva pelicula
 
 $numeroAleatorio = rand(0, 10);
-$respuesta = ($numeroAleatorio % 2 == 0)? "124" : "error";
+$numeroAleatorioId = $numeroAleatorio*10;
+$respuesta = ($numeroAleatorio % 2 == 0)? $numeroAleatorioId : "error";
 
   echo  json_encode($respuesta);
 

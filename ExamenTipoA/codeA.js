@@ -39,6 +39,7 @@ function cargarPeliculas() {
                     $("#"+respuesta[key].id).append("<span>"+actores[valor]+"</span>");
                 }
                 $("#"+respuesta[key].id).click(borrarPelicula);
+                //$("#error").click(borrarPelicula);
             }
 
         },
@@ -125,6 +126,7 @@ function validarFormulario(){
                 required: true,
             },
             genero: {
+                required: true,
                valueNotEquals: "",
             },
             actor1: {
