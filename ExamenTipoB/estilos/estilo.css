@@ -1,4 +1,6 @@
-
+#modal_nueva_carta{
+    display: none;
+}
 label.error {
     color: darkred;
     background-color: lightpink;
