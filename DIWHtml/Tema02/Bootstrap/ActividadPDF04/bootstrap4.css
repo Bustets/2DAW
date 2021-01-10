@@ -1,0 +1,32 @@
+.container div{
+	border: 5px solid white;
+}
+.verde{
+	background-color: lime;
+	height: 70px;
+}
+.cian{
+	background-color: cyan;
+	height: 70px;
+}
+.coral{
+	background-color: coral;
+	height: 70px;
+}
+.left{
+	text-align: left;
+}
+.center{
+	text-align: center;
+}
+.right{
+	text-align: right;
+}
+.rojo{
+	background-color: red;
+	height: 500px;
+}
+.pie{
+	background-color: yellow;
+	height: 70px;
+}
