@@ -14,7 +14,6 @@ $(document).ready(function () {
         $("#viento").on("change",function(){  //
             var valor = $("#i_icono").val();   //
        });                                      //
-
        //
 
         $("#datos_form").validate({
