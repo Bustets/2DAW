@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen Recuperacion B</title>
+    <link href="estilos/estilo.css" rel="stylesheet" type="text/css">
+    <script src="librerias/jquery-3.4.1.min.js"></script>
+    <script src="librerias/jquery.validate.min.js"></script>
+    <script src="codeB.js"></script>
+  </head> 
+<body>
+ <h2>Lista medidas meteorologicas Valencia</h2>
+ <div id="lista_datos"></div>
+<button id="boton_modal">Nuevo dato</button>
+ <div id="dato_modal">
+      <form id="datos_form">
+          <label for="temp">Temperatura:</label>
+          <input id="temp" name="temp" type="number"><br>
+           <label for="icono">Viento:</label>
+          <select id="viento" name="icono">
+            <option class="direccion" value="nada">Elige icono...</option>
+            <option class="direccion" value="n">Norte</option>
+            <option class="direccion" value="s">Sur</option>
+            <option class="direccion" value="e">Este</option>
+            <option class="direccion" value="o">Oeste</option>
+          </select>
+          <span id="i_icono"></span>
+          <br>
+          <label for="f">Fuerza:</label>
+          <input id="fuerza" name="f" type="number">Km/h<br> 
+          <input type="submit" id="enviar_hora" value="Envia">
+      </form>
+      <button id="c_modal">Cerrar</button>
+</div>
+</body>
+</html>
