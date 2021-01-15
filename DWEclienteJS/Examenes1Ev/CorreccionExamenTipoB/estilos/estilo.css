@@ -1,0 +1,20 @@
+
+label.error {
+    color: darkred;
+    background-color: lightpink;
+    border: solid 1px; 
+    padding-left: 5px;
+    margin-left: 5px; 
+}
+
+.carta {
+    border: solid 1px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.carta:last-of-type {
+    background-color: lightgreen;
+}
+
+  

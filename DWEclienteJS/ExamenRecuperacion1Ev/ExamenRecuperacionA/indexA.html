@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen Recuperacion A</title>
+    <link href="estilos/estilo.css" rel="stylesheet" type="text/css">
+    <script src="librerias/jquery-3.4.1.min.js"></script>
+    <script src="librerias/jquery.validate.min.js"></script>
+    <script src="codeA.js"></script>
+  </head>
+  
+<body>
+ <h2>Lista meteorologica por municipio</h2>
+
+ <div id="municipios"></div>
+
+<button id="a_modal">Nuevo municipio</button>
+ <div id="modal">
+      <form id="municipio_form">
+          <label for="nombre">Municipio:</label>
+          <input id="municipio" name="nombre" type="text"><br>
+          <label for="cielo">Cielo:</label>
+          <select id="cielo" name="cielo">
+            <option class="icono" value="nada">Elige icono...</option>
+            <option class="icono" value="0">Sol</option>
+            <option class="icono" value="1">Nubes</option>
+            <option class="icono" value="2">Lluvia</option>
+            <option class="icono" value="3">Nieve</option>
+          </select>
+          <span id="imagen_icono"></span>
+          <br>
+          <label for="maxima">Max:</label>
+          <input id="max" name="maxima" type="number"><br>
+          <label for="minima">Min:</label>
+          <input id="min" name="minima" type="number"><br>
+          <input type="submit" id="enviar_municipio" value="Envia">
+      </form>
+      <button id="c_modal">Cerrar</button>
+</div>
+</body>
+</html>
