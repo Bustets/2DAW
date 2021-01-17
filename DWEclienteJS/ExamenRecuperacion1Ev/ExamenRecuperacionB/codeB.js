@@ -102,11 +102,10 @@ function enviarFormulario(){
     var hora=hoy.toLocaleTimeString();
     var fecha=hora;
 
-    var objeto={fecha:dia,  
+    var objeto={fecha:fecha,  
                 dir:$(".icono:selected").val(),
                 temp:$("#temp").val(), 
-                fza:$("#fuerza").val(),
-                fecha:dia,  
+                fza:$("#fuerza").val(),  
             };
 
                  console.log("Estoy entrando aqui?"+objeto);
