@@ -51,7 +51,7 @@
 			
 		}
 		public function guardar(){
-			setcookie('idPedido',$this->idPedido,time()+36000);
+			setcookie('idPedido',$this->idPedido,time()+36000);//creamos la cukie con setcookie con $_cookie para traer el dato.
 			setcookie('fecha',$this->fecha,time()+36000);
 			setcookie('dniCliente',$this->dniCliente,time()+36000);
 		}
