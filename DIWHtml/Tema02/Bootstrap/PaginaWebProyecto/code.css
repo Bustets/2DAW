@@ -1,6 +1,13 @@
 .textCenter {
     text-align: center;
 }
+.iconsBan{
+	width: 30px;
+}
+
+.iconsFooter {
+    width: 50px;
+}
 
 .separacion_20 {
     padding-bottom: 20px;
