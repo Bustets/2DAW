@@ -22,99 +22,101 @@ class Bd
 		return $this->$var;
 	}
 }
-class Cliente
-{
-		private $dniCliente;
-		private $nombre;
-		private $direccion;
-		private $email;
-		private $pwd;
+class LineasPedido{	
 
-		static function getAll($link){
-			try{
-				$consulta="SELECT * FROM clientes";
-				$result=$link->prepare($consulta);
-				$result->execute();
-				return $result;
-			}
-			catch(PDOException $e){
-				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				return $dato;
- 				die();
- 			}
+	private $idPedido;
+	private $nLinea;
+	private $idProducto;
+	private $cantidad;
+
+	static function getAll($link){
+		try{
+			$consulta="SELECT * FROM lineaspedidos";
+			$result=$link->prepare($consulta);
+			$result->execute();
+			return $result;
 		}
-		function __construct($dni, $nombre, $direccion,$email,$pwd){
-			$this->dniCliente=$dni;
-			$this->nombre=$nombre;
-			$this->direccion=$direccion;
-			$this->email=$email;
-			$this->pwd=$pwd;
-		}
-		function __get($var){
+		catch(PDOException $e){
+			$dato= "¡Error!: " . $e->getMessage() . "<br/>";
+			 return $dato;
+			 die();
+		 }
+	}
+
+	function __construct($idPedido, $nLinea, $idProducto, $cantidad){
+		$this->idPedido=$idPedido;
+		$this->nLinea=$nLinea;
+		$this->idProducto=$idProducto;
+		$this->cantidad=$cantidad;
+	}
+	function __get($var){
 		return $this->$var;
 		}
-		function buscar ($link){
-			try{
-				$consulta="SELECT * FROM clientes where dniCliente='$this->dniCliente'";
-				$result=$link->prepare($consulta);
-				$result->execute();
-				return $result->fetch(PDO::FETCH_ASSOC);
-			}
-			catch(PDOException $e){
-				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				return $dato;
- 				die();
- 			}
+	function getLineas($link){
+		$consulta="SELECT * FROM lineaspedidos where idPedido='$this->idPedido'";
+		$result=$link->prepare($consulta);
+		return $result->fetch(PDO::FETCH_ASSOC);
+	}
+	function insertar ($link){
+		try{
+			$consulta="INSERT INTO lineaspedidos VALUES (:idPedido,:nLinea,:idProducto,:cantidad)";
+			$result=$link->prepare($consulta);
+			$result->bindParam(':idPedido',$idPedido);
+			$result->bindParam(':nLinea',$nLinea);
+			$result->bindParam(':idProducto',$didProducto);
+			$result->bindParam(':cantidad',$cantidad);
+			$idPedido=$this->idPedido;
+			$nLinea=$this->nLinea;
+			$idProducto=$this->idProducto;
+			$cantidad=$this->cantidad;
+			$result->execute();
+			return $result;
 		}
-		function insertar ($link){
-			try{
-				$consulta="INSERT INTO clientes VALUES (:dniCliente,:nombre,:direccion,:email,:pwd)";
-				$result=$link->prepare($consulta);
-				$result->bindParam(':dniCliente',$dniCliente);
-				$result->bindParam(':nombre',$nombre);
-				$result->bindParam(':direccion',$direccion);
-				$result->bindParam(':email',$email);
-				$result->bindParam(':pwd',$pwd);
-				$dniCliente=$this->dniCliente;
-				$nombre=$this->nombre;
-				$direccion=$this->direccion;
-				$email=$this->email;
-				$pwd=$this->pwd;
-				$result->execute();
-				return $result;
-			}
-			catch(PDOException $e){
-				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				return $dato;
- 				die();
- 			}
-		}
+		catch(PDOException $e){
+			$dato= "¡Error!: " . $e->getMessage() . "<br/>";
+			 return $dato;
+			 die();
+		 }
+	}
 
-		
-		function modificar ($link){
-			try{
-				$consulta="UPDATE clientes SET nombre='$this->nombre',  direccion='$this->direccion',  email='$this->email', pwd='$this->pwd' WHERE dniCliente='$this->dniCliente'";
-				$result=$link->prepare($consulta);
-				return $result->execute();
-			}
-			catch(PDOException $e){
-				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				return $dato;
- 				die();
- 			}
+	function buscar ($link){
+		try{
+			$consulta="SELECT * FROM lineaspedidos where idPedido='$this->idPedido'";
+			$result=$link->prepare($consulta);
+			$result->execute();
+			return $result->fetch(PDO::FETCH_ASSOC);
 		}
-
-		function modificarParcial ($link,$input){
+		catch(PDOException $e){
+			$dato= "¡Error!: " . $e->getMessage() . "<br/>";
+			 return $dato;
+			 die();
+		 }
+	}
+	function modificarParcial ($link,$input){
+		try{
+			$fields = getParams($input);
+			$consulta = "
+			  UPDATE lineapedidos
+			  SET $fields
+			  WHERE idPedido='$this->idPedido'";
+			  $result=$link->prepare($consulta);
+			
+			$result->execute();
+			return $result;
+		}
+		catch(PDOException $e){
+			$dato= "¡Error!: " . $e->getMessage() . "<br/>";
+			 return $dato;
+			 die();
+		 }
+		}
+		function sacarMaxLinea ($link) {
 			try{
-				$fields = getParams($input);
-				$consulta = "
-          		UPDATE clientes
-          		SET $fields
-          		WHERE dniCliente='$this->dniCliente'";
-          		$result=$link->prepare($consulta);
-				
+				$consulta="SELECT MAX(nlinea) AS nlinea FROM lineaspedidos WHERE  idPedido='$this->idPedido'";
+				$result=$link->prepare($consulta);
 				$result->execute();
-				return $result;
+				$dato = $result->fetch(PDO::FETCH_ASSOC);
+				return $dato['nlinea'];
 			}
 			catch(PDOException $e){
 				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
@@ -122,16 +124,32 @@ class Cliente
  				die();
  			}
 		}
-		function borrar ($link){
-			try{
-				$consulta="DELETE FROM clientes where dniCliente='$this->dniCliente'";
-				$result=$link->prepare($consulta);
-				return $result->execute();
-			}
-			catch(PDOException $e){
-				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				return $dato;
- 				die();
- 			}
+	//borra solo un pedido en concreto
+	function borrar ($link){
+		try{
+			$consulta="DELETE FROM lineaspedidos where idPedido='$this->idPedido' and nlinea='$this->nlinea'";
+			$result=$link->prepare($consulta);
+			return $result->execute();
 		}
+		catch(PDOException $e){
+			$dato= "¡Error!: " . $e->getMessage() . "<br/>";
+			 return $dato;
+			 die();
+		 }
+	}
+	//borra todas las lineas de pedido
+	function borrarTodasLineaPedio ($link){
+		try{
+			$consulta="DELETE FROM lineaspedidos where idPedido='$this->idPedido'";
+			$result=$link->prepare($consulta);
+			return $result->execute();
+		}
+		catch(PDOException $e){
+			$dato= "¡Error!: " . $e->getMessage() . "<br/>";
+			 return $dato;
+			 die();
+		 }
+	}
+	
+
 }
