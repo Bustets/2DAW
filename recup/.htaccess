@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteRule ^miguel$ miguel.php
+RewriteRule ^fernando/(.+)$ fernando.php?idJugador=$1

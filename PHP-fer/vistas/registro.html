@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <script src="../lib/js/jquery-3.4.1.min.js"></script>
+    <script src="../lib/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+</head>
+
+<body class="fondo">
+    <!-- Logo -->
+    <header>
+        <div class="container col-10 col-sm-12 d-flex justify-content-center mt-2">
+            <a href="../controladores/principal"><img src="../img/logo.png" alt="No se muestra el logo" class="logo mb-2 mt-1 border rounded"></a>
+        </div>
+    </header>
+
+    <!-- Formulario -->
+    <section>
+        <article>
+            <div class="card container col-10 mb-3 border border-info" style="width: 25rem;">
+                <div class="card-body row">
+                    <h5 class="card-title col-12">Crear cuenta</h5>
+                    <p class="card-text ">
+                        <form action="" method="POST" class="form-row">
+                            <div class="form-group col-12 col-sm-6">
+                                <label for="dniCliente">DNI cliente</label>
+                                <input type="text" class="form-control text-center border border-info" id="dniCliente" name="dniCliente">
+                            </div>
+                            <div class="form-group col-12 col-sm-6">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control text-center border border-info" id="nombre" name="nombre">
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="direccion">Direccion</label>
+                                <input type="text" class="form-control text-center border border-info" id="direccion" name="direccion">
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control text-center border border-info" id="email" name="email">
+                            </div>
+                            <div class="form-group col-12 col-sm-12">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control text-center border border-info" id="password" name="password">
+                            </div>
+                            <?php if($error == "Error") { ?>
+                            <p class="card-text text-center col-12 p-3 mb-2 bg-danger text-white rounded-pill">
+                                <?php echo "¡Ya existe este usuario en la base de datos!"; ?>
+                            </p>
+                            <?php } ?>
+                            <?php if($error == "NoVacio") { ?>
+                            <p class="card-text text-center col-12 p-3 mb-2 bg-danger text-white rounded-pill">
+                                <?php echo "¡No puede dejar ningun campo vacio!"; ?>
+                            </p>
+                            <?php } ?>
+                            <button type="submit" class="btn btn-outline-success col-12 p-3 mb-2 mt-4" name="registro">Crear tu cuenta Moto Road</button>
+                        </form>
+                    </p>
+                </div>
+            </div>
+        </article>
+    </section>
+</body>
+
+</html>

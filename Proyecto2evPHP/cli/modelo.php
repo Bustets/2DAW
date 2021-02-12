@@ -53,6 +53,11 @@ class Cliente
 		function __get($var){
 		return $this->$var;
 		}
+		function __set($property, $value){
+			if(property_exists($this, $property)) {
+				$this->$property = $value;
+			}
+		}
 		function buscar ($link){
 			try{
 				$consulta="SELECT * FROM clientes where dniCliente='$this->dniCliente'";
@@ -91,7 +96,7 @@ class Cliente
 		}
 
 		
-		function modificar ($link){
+		/*function modificar ($link){
 			try{
 				$consulta="UPDATE clientes SET nombre='$this->nombre',  direccion='$this->direccion',  email='$this->email', pwd='$this->pwd' WHERE dniCliente='$this->dniCliente'";
 				$result=$link->prepare($consulta);
@@ -102,7 +107,7 @@ class Cliente
  				return $dato;
  				die();
  			}
-		}
+		}*///No hace falta para este servicio
 
 		function modificarParcial ($link,$input){
 			try{

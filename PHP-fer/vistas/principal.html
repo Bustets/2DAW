@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Principal</title>
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <script src="../lib/js/jquery-3.4.1.min.js"></script>
+    <script src="../lib/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+</head>
+
+<body class="fondo">
+    <!-- Menu -->
+    <header class="sticky-top container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light row" id="menu">
+            <div class="col-sm-6 col-12">
+                <a class="" href="../controladores/principal"><img src="../img/logo.png" alt="No se muestra el logo" class="img-thumbnail logo"></a>
+            </div>
+            <div class="col-sm-6 col-12 d-flex justify-content-end mt-3 mb-2">
+                <div class=" d-flex justify-content-end mr-4">
+                    <?php if(empty($_COOKIE['dni'])) {?>
+                    <a href="../controladores/validar" class="btn btn-primary  mr-sm-3">Iniciar sesión</a>
+                    <?php } else {?>
+                    <p class="text-center"><strong>Bienvenido
+                        <?php echo $_COOKIE['nombre'];?></strong><br>
+                        <a href="../controladores/cerrarSesion.php" class="btn btn-warning mt-2">Cerrar sesión</a>
+                    </p>
+                    <?php }?>
+                </div>
+                <div class="ml-5 text-center">
+                    <a href="../controladores/verCarrito">
+                        <?php if($span != 0){?>
+                        <img src="../img/icons/cart.png" class="carrito aniCarrito" alt="">
+                        <?php } else {?>
+                        <img src="../img/icons/cart.png" class="carrito" alt="">
+                        <?php } ?>
+                        <span class="ml-1 enlace"><?php echo $span; ?></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Video solo desktop -->
+    <section>
+        <article>
+            <div class="mb-5  d-none d-sm-block">
+                <video id="myVideo" class="video" height="400" muted autoplay loop>
+                    <source src="../img/moto.mp4" type="video/mp4">
+                        Tu navegador no soporta  HTML5 .
+                </video>
+            </div>
+        </article>
+
+        <!-- Carousel solo mobile -->
+        <article>
+            <div id="carouselExampleInterval" class="carousel slide d-block d-sm-none mb-5" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-interval="10000">
+                        <img src="../img/bannerCarrousel1.png" class="w-100 fotoCarrousel" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="2000">
+                        <img src="../img/bannerCarrousel2.png" class="w-100 fotoCarrousel" alt="...">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </article>
+    </section>
+
+    <!-- Productos -->
+    <section>
+        <article>
+            <div class="container col-10 col-sm-8" id="productos">
+                <div class="row">
+                    <div class="text-center mb-0 col-12 ">
+                        <h5 class="col-12 rounded-top bg-info text-white mb-0 p-3 odibee">MOTOS DE OCASIÓN</h5>
+                    </div>
+                    <?php while($producto = $productos->fetch(PDO::FETCH_ASSOC)){ ?>
+                    <div class="card col-sm-4 col-12 mb-4 border border-info rounded-0" style="width: 18rem;">
+                        <img src="../img/<?php echo $producto['foto'];?>" class="card-img-top rounded mt-2 tamanyoFoto" alt="...">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-center">
+                                <?php echo $producto['nombre'];?>
+                            </h5>
+                            <p class="card-text">Precio:
+                                <?php echo $producto['precio'];?>€</p>
+                            <a href="../controladores/detalle/<?php echo $producto['idProducto'];?>" class="btn btn-outline-secondary" name="irDetalle">Ver oferta</a>
+                        </div>
+                    </div>
+                    <?php  } ?>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- Banner-->
+    <section>
+        <article>
+            <div class="container-fluid col-12 d-flex justify-content-center  mt-4 mb-5 ">
+                <img src="../img/750BannerDesktop.png" class="d-none d-sm-block rounded" alt="">
+                <img src="../img/750Banner.png" class="d-block d-sm-none rounded" alt="">
+            </div>
+        </article>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container-fluid text-white">
+        <div class="row">
+            <p class="col-md-5 col-12 d-flex justify-content-sm-end justify-content-center ">© Copyright 2020- <strong> Moto Road</strong> </p>
+            <p class="col-md-7 col-12 d-flex justify-content-sm-start text-center "> C/ Dolores Marques nº42 (Valencia) CP:46020 Telefóno: 662128394</p>
+            <div class=" col-12 d-flex justify-content-center">
+                <p>Síguenos en: </p>
+                <a href="https://www.facebook.com/"><img src="../img/icons/facebook.png" class="iconsFooter" alt=""></a>
+                <a href="https://www.instagram.com/"><img src="../img/icons/instagram.png" class="iconsFooter" alt=""></a>
+                <a href="https://www.twitter.com/"><img src="../img/icons/twitter.png" class="iconsFooter" alt=""></a>
+                <a href="../vistas/guiaEstilo.html" class="enlace">Guia Estilo</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

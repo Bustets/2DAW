@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Confirmar</title>
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <script src="../lib/js/jquery-3.4.1.min.js"></script>
+    <script src="../lib/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+</head>
+
+<body class="fondo">
+    <!-- API -->
+    <section>
+        <article>
+            <div class="row headers col-12 no-gutters  bg-info text-white ">
+                <h1 class="col-sm-12 mt-2 d-flex justify-content-center odibee mt-5">Gracias por comprar en Moto Road</h1>
+
+                <p class="col-12 text-center">Aqui tienes tu factura.</p>
+                <div class="col-12 text-center mb-3"> Si quieres acercarte a nuestra tienda, esta situada en:<br> C/ Dolores Marqu&eacute;s nº42 (valencia) CP: 46020<br>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.155131813484!2d-0.36391358437125515!3d39.488411519494235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd60461dca9aac6f%3A0xf16d7a5c965fbc30!2sCalle%20de%20Dolores%20Marqu%C3%A9s%2C%2042%2C%2046020%20Valencia!5e0!3m2!1ses!2ses!4v1581861720005!5m2!1ses!2ses"
+                        width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" class="mapa mt-2"></iframe>
+                </div>
+
+                <form action="" method="POST" class="col-sm-6 col-6 d-flex justify-content-end mb-4">
+                    <input type="submit" class="btn btn-secondary " value="GENERAR PDF" name="generar">
+                </form>
+                <form action="" method="POST" class="col-sm-1 col-5 d-flex justify-content-center mb-4">
+                    <input type="submit" class="btn btn-danger " value="SALIR" name="aceptar">
+                </form>
+            </div>
+        </article>
+    </section>
+
+    <!-- PDF EN HTML -->
+    <section>
+        <article>
+            <div class="container col-12 col-sm-8 mt-4 ">
+                <div class="row">
+                    <div class="card col-12 mb-5">
+                        <div class=" col-12">
+                            <div class="row ml-sm-5 mt-sm-3">
+                                <img src="../img/logo.png" alt="No se muestra el logo" class="img-thumbnail logo mt-3 ml-sm-4">
+                            </div>
+                            <!-- Datos vendedor -->
+                            <div class="row ml-sm-5 mb-4 mt-3">
+                                <p class="card-text col-sm-6"><strong>Vendedor: </strong> Moto Road <br>
+                                    <strong>Direcci&oacute;n: </strong> C/ Dolores Marques nº 42 <br>
+                                    <strong>Poblaci&oacute;n: </strong> Valencia <br>
+                                    <strong>CP: </strong> 46020 <strong> Tel&eacute;fono: </strong> 963698427 <br>
+                                </p>
+                                <p class="card-text col-sm-6 mt-3"><strong>N&uacute;mero de albar&aacute;n: </strong>
+                                    <?php echo $_COOKIE['carrito']; ?>
+                                </p>
+                            </div>
+                            <!-- Datos Cliente -->
+                            <div class="row mb-4 ">
+                                <p class="card-text col-sm-8">
+                                </p>
+                                <p class="card-text col-sm-3 text-left"><strong>Cliente: </strong>
+                                    <?php echo $_COOKIE['nombre']; ?> <br>
+                                    <strong>Con DNI/CIF: </strong>
+                                    <?php echo $_COOKIE['dni']; ?> <br>
+                                    <strong>Direcci&oacute;n: </strong>
+                                    <?php echo $dirEntrega; ?> <br>
+                                    <strong>Poblaci&oacute;n: </strong> Valencia <strong>CP: </strong> 46020 <br>
+                                    <strong> Tel&eacute;fono: </strong> 662128394 <br>
+                                </p>
+                            </div>
+                            <!-- Datos pedido -->
+                            <div class="row mb-sm-4 mt-sm-4">
+                                <p class="card-text col-sm-12 text-center">
+                                    <strong>N&uacute;mero de pedido: </strong>
+                                    <?php echo $idPedidoMax; ?> <br>
+                                    <strong>Fecha de envio: </strong>
+                                    <?php echo $date; ?> <br>
+                                    <strong>Direcci&oacute;n de entrega: </strong>
+                                    <?php echo $dirEntrega; ?> <br>
+                                </p>
+                            </div>
+                            <!-- Tabla del pedido -->
+                            <div class="row">
+                                <div class="card-text col-sm-12 text-center table-responsive mb-sm-4 mt-2">
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Ref.</th>
+                                                <th scope="col">Articulo</th>
+                                                <th scope="col">Cantidad</th>
+                                                <th scope="col">Precio</th>
+                                                <th scope="col">Importe</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php while($producto = $productos->fetch(PDO::FETCH_ASSOC)){ ?>
+                                            <tr>
+                                                <th scope="row">
+                                                    <?php echo $producto['idProducto'];?>
+                                                </th>
+                                                <td>
+                                                    <?php echo $producto['nombreProducto'];?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $producto['cantidad'];?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo ($producto['precio'])-($producto['precio']*0.21);?>
+                                                </td>
+                                                <td>
+                                                    <?php echo (($producto['precio'])-($producto['precio']*0.21))*$producto['cantidad'];?>
+                                                </td>
+                                            </tr>
+                                            <?php  } ?>
+                                            <tr>
+                                                <th scope="row" colspan="4" class="text-left">Importe bruto</th>
+                                                <td>
+                                                    <strong><?php echo $importeBruto;?></strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" colspan="3" class="text-left">Descuento %</th>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" colspan="4" class="text-right">Base imponible</th>
+                                                <td>
+                                                    <?php echo $importeBruto;?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" colspan="3" class="text-right">IVA</th>
+                                                <td>21%
+                                                </td>
+                                                <td>
+                                                    <?php echo $iva;?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" colspan="4" class="text-right">Total factura</th>
+                                                <td>
+                                                    <strong><?php echo $total;?></strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container-fluid text-white ">
+        <div class="row">
+            <p class="col-md-5 col-12 d-flex justify-content-sm-end justify-content-center ">© Copyright 2020- <strong> Moto Road</strong></p>
+            <p class="col-md-7 col-12 d-flex justify-content-sm-start text-center "> C/ Dolores Marques nº42 (Valencia) CP:46020 Telefóno: 662128394</p>
+            <div class=" col-12 d-flex justify-content-center">
+                <p>Síguenos en: </p>
+                <a href="https://www.facebook.com/"><img src="../img/icons/facebook.png" class="iconsFooter" alt=""></a>
+                <a href="https://www.instagram.com/"><img src="../img/icons/instagram.png" class="iconsFooter" alt=""></a>
+                <a href="https://www.twitter.com/"><img src="../img/icons/twitter.png" class="iconsFooter" alt=""></a>
+                <a href="../vistas/guiaEstilo.html" class="enlace">Guia Estilo</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

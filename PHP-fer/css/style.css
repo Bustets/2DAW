@@ -1,0 +1,165 @@
+/* Todos los h5 en negrita */
+
+* {
+    font-family: Arial;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+.fondo {
+    background: #ECECEC;
+}
+
+footer {
+    background: #939393;
+}
+
+
+/* tamaño foto productos*/
+
+.fotoCarrousel {
+    height: 52vw;
+}
+
+.tamanyoFoto {
+    width: 100%;
+    height: 15vw;
+}
+
+.tamanyoFotoDetalle {
+    width: 100%;
+    height: 60%;
+}
+
+.footerAbajo {
+    position: fixed;
+    bottom: 0;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+}
+
+
+/*Icono footer*/
+
+.iconsFooter {
+    width: 30px;
+}
+
+.video {
+    width: 100%;
+    height: 70%;
+}
+
+
+/* Carrito  img */
+
+.carrito {
+    width: 50%;
+}
+
+
+/* Enlaces como SPAN */
+
+.enlace {
+    text-decoration: none;
+    color: black;
+}
+
+.enlace:link {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* Fuentes */
+
+@font-face {
+    font-family: odibee;
+    src: url("../font/OdibeeSans-Regular.ttf");
+}
+
+.odibee {
+    font-family: odibee;
+    font-size: 3vw;
+}
+
+
+/* Animacion carrito */
+
+.aniCarrito {
+    -webkit-animation-name: carritoMov;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@keyframes carritoMov {
+    0% {
+        transform: scale(1);
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: scale(1);
+        transform: rotate(0deg);
+    }
+    80% {
+        transform: scale(1);
+        transform: rotate(-10deg);
+    }
+    85% {
+        transform: scale(1);
+        transform: rotate(10deg);
+    }
+    90% {
+        transform: scale(1);
+        transform: rotate(-10deg);
+    }
+    95% {
+        transform: scale(1);
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: scale(1);
+        transform: rotate(0deg);
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 576px) {
+    .tamanyoFoto {
+        width: 100%;
+        height: 40vw;
+    }
+    .tamanyoFotoDetalle {
+        width: 100%;
+        height: 60vw;
+    }
+    .footerAbajo {
+        position: relative;
+    }
+    .logo {
+        width: 100%;
+        height: 22vw;
+    }
+    .odibee {
+        font-family: odibee;
+        font-size: 8vw;
+    }
+    .mapa {
+        width: 300px;
+    }
+}
+
+
+/* HOJA DE ESTILO */
+
+.imagenEstilo {
+    width: 40%;
+}
