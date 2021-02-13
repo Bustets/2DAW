@@ -1,3 +1,6 @@
 RewriteEngine on
+RewriteRule ^(.+)/(.+)$ producto.php?accion=getProduct&key=$1&value=$2
+RewriteRule ^campos$ producto.php?accion=getCampos
 RewriteRule ^producto$ producto.php
+
 RewriteRule ^producto/(.+)$ producto.php?$1=campos

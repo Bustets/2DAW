@@ -9,30 +9,38 @@ $base= new Bd();
   listar todos los posts o solo uno
  */
 if ($_SERVER['REQUEST_METHOD'] == 'GET')
+//var_dump($_SERVER);
 {
-  $obtenerCampo=buscarCampos($_GET);
-    if (isset($_GET['campos'])){
-      $producto= new Producto('','','','','','','','','','');
-      $dato=$producto->campos($base->link);
+  if($_SERVER['QUERY_STRING']){
+    $queryString = $_SERVER['QUERY_STRING'];
+    parse_str($queryString, $params);
+    
+    if($params['accion']== 'getProduct'){
+      $dato=Producto::getProducto($base->link, $params);
+      $dato->setFetchMode(PDO::FETCH_ASSOC);
       header("HTTP/1.1 200 OK");
-      echo json_encode($dato);
+      echo json_encode($dato->fetchAll());
       exit();
-	  }
-    else if(isset($_GET[$obtenerCampo])) {
-      $producto= new Producto('','','','','','','','','','');
-      $dato=$producto->buscarParcial($base->link, $_GET);
-      header("HTTP/1.1 200 OK");
-      echo json_encode($dato);
-      exit();
-	  }
-    else {
+    }
+
+    else if($params['accion']== 'getCampos'){
+
+        $dato=Producto::buscarCampos($base->link);
+        $dato->setFetchMode(PDO::FETCH_ASSOC);
+        header("HTTP/1.1 200 OK");
+        echo json_encode($dato->fetchAll());
+        exit();
+      }
+
+  }else{
       //Mostrar lista de Producto
       $dato=Producto::getAll($base->link);
       $dato->setFetchMode(PDO::FETCH_ASSOC);
       header("HTTP/1.1 200 OK");
       echo json_encode($dato->fetchAll());
       exit();
-  }
+    }
+  
 }
 
 

@@ -78,18 +78,29 @@ class Producto{
 			 die();
 		 }
 	}
-	/////////No se pa que sirve esto
-	function buscarCampos ($link){
-		
-	}
-
-	//Campos que nos pide el enunciado
-	function campos($link){
+	function getProducto($link, $params){
 		try{
-			$result = $link->prepare("DESCRIBE productos");
+			$consulta="SELECT * FROM productos WHERE ".$params['key']."='".$params['value']."'";
+			//echo $consulta;
+			$result=$link->prepare($consulta);
 			$result->execute();
-			return $table_fields = $result->fetchAll(PDO::FETCH_COLUMN);
+			return $result;
+		}
+		catch(PDOException $e){
+			$dato= "¡Error!: " . $e->getMessage() . "<br/>";
+			 return $dato;
+			 die();
+		 }
 
+	}
+	
+	function buscarCampos ($link){
+		try{
+			$consulta="DESCRIBE productos"; //la sentencia DESCRIBRE devuelve los nombres de los campos de la estructura de la tabla
+			//echo $consulta;
+			$result=$link->prepare($consulta);
+			$result->execute();
+			return $result;
 		}
 		catch(PDOException $e){
 			$dato= "¡Error!: " . $e->getMessage() . "<br/>";
