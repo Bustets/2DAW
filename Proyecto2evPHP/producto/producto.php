@@ -10,11 +10,17 @@ $base= new Bd();
  */
 if ($_SERVER['REQUEST_METHOD'] == 'GET')
 {
-    if (isset($_GET['idProducto']))
-    {
-      //Mostrar un Producto
-      $producto= new Producto($_GET['idProducto'],'','','','','','','','','');
-      $dato=$producto->buscar($base->link);
+  $obtenerCampo=buscarCampos($_GET);
+    if (isset($_GET['campos'])){
+      $producto= new Producto('','','','','','','','','','');
+      $dato=$producto->campos($base->link);
+      header("HTTP/1.1 200 OK");
+      echo json_encode($dato);
+      exit();
+	  }
+    else if(isset($_GET[$obtenerCampo])) {
+      $producto= new Producto('','','','','','','','','','');
+      $dato=$producto->buscarParcial($base->link, $_GET);
       header("HTTP/1.1 200 OK");
       echo json_encode($dato);
       exit();
@@ -26,8 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
       header("HTTP/1.1 200 OK");
       echo json_encode($dato->fetchAll());
       exit();
-	}
+  }
 }
+
 
 // Crear un nuevo post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -65,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT')
     exit();
   }
 }
+
 
 
 //En caso de que ninguna de las opciones anteriores se haya ejecutado

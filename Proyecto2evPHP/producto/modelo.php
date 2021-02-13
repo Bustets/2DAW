@@ -78,6 +78,26 @@ class Producto{
 			 die();
 		 }
 	}
+	/////////No se pa que sirve esto
+	function buscarCampos ($link){
+		
+	}
+
+	//Campos que nos pide el enunciado
+	function campos($link){
+		try{
+			$result = $link->prepare("DESCRIBE productos");
+			$result->execute();
+			return $table_fields = $result->fetchAll(PDO::FETCH_COLUMN);
+
+		}
+		catch(PDOException $e){
+			$dato= "¡Error!: " . $e->getMessage() . "<br/>";
+			 return $dato;
+			 die();
+		 }
+	}
+
 	function insertar ($link){
 		try{
 			$consulta="INSERT INTO productos VALUES (:idProducto,:nombre,:origen,:foto,:marca,:categoria,:peso,:unidades,:volumen,:precio)";
@@ -111,17 +131,16 @@ class Producto{
 			 die();
 		 }
 	}
-	function modificarParcial ($link,$input){
+	function buscarParcial ($link,$input){
 		try{
 			$fields = getParams($input);
 			$consulta = "
-			  UPDATE producto
-			  SET $fields
-			  WHERE idProducto='$this->idProducto'";
-			  $result=$link->prepare($consulta);
-			
-			$result->execute();
-			return $result;
+				SELECT * FROM productos 
+				WHERE $fields";
+				$result=$link->prepare($consulta);
+				$result->execute();
+				$result->setFetchMode(PDO::FETCH_ASSOC);
+				return $result->fetchAll();
 		}
 		catch(PDOException $e){
 			$dato= "¡Error!: " . $e->getMessage() . "<br/>";
