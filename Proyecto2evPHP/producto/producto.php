@@ -9,7 +9,7 @@ $base= new Bd();
   listar todos los posts o solo uno
  */
 if ($_SERVER['REQUEST_METHOD'] == 'GET')
-//var_dump($_SERVER);
+
 {
   if($_SERVER['QUERY_STRING']){
     $queryString = $_SERVER['QUERY_STRING'];
