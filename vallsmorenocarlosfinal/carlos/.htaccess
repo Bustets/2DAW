@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule ^carlos/(.+)$ carlos.php?nombre=$1
+RewriteRule ^carlos$ carlos.php
