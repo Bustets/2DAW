@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteRule ^bustos/(.+)$ bustos.php?Nombre=$1
+RewriteRule ^bustos$ bustos.php
