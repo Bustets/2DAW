@@ -1,5 +1,16 @@
 <?php
 
+//cabeceras para evitar el error de CORS
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+ 
+$method = $_SERVER['REQUEST_METHOD']; //obrtengo el metodo
+
+if ($method == 'OPTIONS') {  // para metodo options, solo devuelvo una cabecera de ok. OJO, sin esto los servicios Angular dan un error
+  header("HTTP/1.1 200 OK");
+  exit;}
+
 include "utils.php";
 include "modelo.php";
 
@@ -31,15 +42,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 
 // Crear un nuevo post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-    $pedido= new Pedido('',$_POST['fecha'],$_POST['dirEntrega'],$_POST['nTarjeta'],$_POST['fechaCaducidad'],$_POST['matriculaRepartidor'],$_POST['dniCliente']);
-    $pedido->idPedido = $pedido->maxPedido($base->link);//calcular el id del pedido
-    if(!$pedido->buscarPedido($base->link)){
-      $pedido->insertarPedido($base->link);
-      header("HTTP/1.1 200 OK");
-      echo json_encode($_POST['idPedido']);
-      exit();
-	 }
+{ 
+  if (isset($_POST['dniCliente'])) {
+  $pedido = new Pedido('',$_POST['fecha'],$_POST['dirEntrega'],$_POST['nTarjeta'],$_POST['fechaCaducidad'],$_POST['matriculaRepartidor'],$_POST['dniCliente']);
+  $pedido->idPedido=$pedido->calcularIdPedido($base->link);
+  if(!$pedido->buscarPedido($base->link)){
+    $pedido->insertarPedido($base->link);
+    header("HTTP/1.1 200 OK");
+    echo json_encode($pedido->idPedido);
+    exit();
+      }
+    }else{
+      $dato = json_decode(file_get_contents("php://input"));
+      foreach ($dato as $key => $value) {
+        $_POST[$key]=$value;
+      }
+      $pedido = new Pedido('',$_POST['fecha'],$_POST['dirEntrega'],$_POST['nTarjeta'],$_POST['fechaCaducidad'],$_POST['matriculaRepartidor'],$_POST['dniCliente']);
+      $pedido->idPedido=$pedido->maxPedido($base->link);
+      if(!$pedido->buscarPedido($base->link)){
+        $pedido->insertarPedido($base->link);
+        header("HTTP/1.1 200 OK");
+        echo json_encode($pedido->idPedido);
+        exit();
+      }
+    }
 }
 
 //Borrar
@@ -62,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT')
     $pedido= new Pedido($_GET['idPedido'],'','','','','','');
     $error=$pedido->modificarParcial($base->link,$_GET);
     header("HTTP/1.1 200 OK");
-    echo $_GET['idPedido'];
+    echo json_encode($_GET['idPedido']);
     exit();
   }
 }

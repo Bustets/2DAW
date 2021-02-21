@@ -58,6 +58,16 @@ class Cliente
 				$this->$property = $value;
 			}
 		}
+		public function jsonSerialize()
+    {
+        return 
+        [
+            'dniCliente'   => $this->dniCliente,
+            'nombre' => $this->nombre,
+            'email' => $this->email
+        ];
+    }
+	
 		function buscar ($link){
 			try{
 				$consulta="SELECT * FROM clientes where dniCliente='$this->dniCliente'";

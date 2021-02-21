@@ -1,5 +1,17 @@
 <?php
 
+//cabeceras para evitar el error de CORS
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+ 
+$method = $_SERVER['REQUEST_METHOD']; //obrtengo el metodo
+
+if ($method == 'OPTIONS') {  // para metodo options, solo devuelvo una cabecera de ok. OJO, sin esto los servicios Angular dan un error
+  header("HTTP/1.1 200 OK");
+  exit;}
+
+
 include "utils.php";
 include "modelo.php";
 
@@ -31,22 +43,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 
 // Crear un nuevo post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-  $nLinea= new LineasPedido($_POST['idPedido'],$_POST['nLinea'],$_POST['idProducto'],$_POST['cantidad']);
-    if(!$nLinea->buscar($base->link)){
-      $nLinea->insertar($base->link);
+{if (isset($_POST['idPedido'])) {
+  $lineaPedido= new LineasPedido($_POST['idPedido'],'',$_POST['idProducto'],$_POST['cantidad']);
+  $lineaPedido->nLinea=$lineaPedido->generarMaxLinea($base->link);
+  if(!$lineaPedido->buscarLinea($base->link)){
+    $lineaPedido->insertar($base->link);
+    header("HTTP/1.1 200 OK");
+    echo json_encode("$lineaPedido->nLinea");
+    exit();
+  }
+} else{
+    $dato = json_decode(file_get_contents("php://input"));
+    foreach ($dato as $key => $value) {
+      $_POST[$key]=$value;
+    }
+    $lineaPedido= new LineasPedido($_POST['idPedido'],'',$_POST['idProducto'],$_POST['cantidad']);
+    $lineaPedido->nLinea=$lineaPedido->generarMaxLinea($base->link);
+    if(!$lineaPedido->buscarLinea($base->link)){
+      $lineaPedido->insertar($base->link);
       header("HTTP/1.1 200 OK");
-      echo json_encode($_POST['idPedido']);
+      echo json_encode("$lineaPedido->nLinea");
       exit();
-	 }
+    }
+   }
 }
 
 //Borrar
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE')
 {
 	$idPedido = $_GET['idPedido'];
-  $nLinea= new LineasPedido($idPedido,'','','');
-  if($dato=$nLinea->borrar($base->link)){
+  $dato= new LineasPedido($idPedido,$_GET['nlinea'],'','');
+  if($dato->borrar($base->link)){
 	 header("HTTP/1.1 200 OK");
    	 echo json_encode($idPedido);
 	 exit();

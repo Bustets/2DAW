@@ -1,4 +1,0 @@
-Para iniciar la tienda entrar en controladores y acto seguido a principal.php.
-
-usuario: 21002363M
-contraseña: cambiar

@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^diego$ diego.php

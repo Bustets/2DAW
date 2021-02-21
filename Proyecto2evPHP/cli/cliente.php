@@ -1,5 +1,16 @@
 <?php
 
+//cabeceras para evitar el error de CORS
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+ 
+$method = $_SERVER['REQUEST_METHOD']; //obrtengo el metodo
+
+if ($method == 'OPTIONS') {  // para metodo options, solo devuelvo una cabecera de ok. OJO, sin esto los servicios Angular dan un error
+  header("HTTP/1.1 200 OK");
+  exit;}
+
 include "utils.php";
 include "modelo.php";
 
@@ -32,13 +43,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 // Crear un nuevo post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+  if (isset($_POST['dniCliente'])) {
     $cli= new Cliente($_POST['dniCliente'],$_POST['nombre'],$_POST['direccion'],$_POST['email'],$_POST['pwd']);
     if(!$cli->buscar($base->link)){
       $cli->insertar($base->link);
       header("HTTP/1.1 200 OK");
       echo json_encode($_POST['dniCliente']);
       exit();
-	 }
+  }
+} else {
+    $dato = json_decode(file_get_contents("php://input"));
+    foreach ($dato as $key => $value) {
+      $_POST[$key]=$value;
+    }
+    $cli= new Cliente($_POST['dniCliente'],$_POST['nombre'],$_POST['direccion'],$_POST['email'],$_POST['pwd']);
+    if(!$cli->buscar($base->link)){
+      $cli->insertar($base->link);
+      header("HTTP/1.1 200 OK");
+      echo json_encode($_POST['dniCliente']);
+      exit();
+
+       }
+  }
 }
 
 //Borrar
@@ -61,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT')
     $cli= new Cliente($_GET['dniCliente'],'','','','');
     $error=$cli->modificarParcial($base->link,$_GET);
     header("HTTP/1.1 200 OK");
-    echo $_GET['dniCliente'];
+    echo json_encode($_GET['dniCliente']);
     exit();
   }
 }
