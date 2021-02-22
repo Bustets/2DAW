@@ -11,7 +11,7 @@
             require "vistas/error.php";
             require "vistas/formulario.html";
         } else {
-            $url_servicio = "http://localhost/DWES/Examen2/pardopontdanielfinal/daniel/daniel";
+            $url_servicio = "http://localhost/2DAW/EXAMENpardopontdanielfinal/daniel/daniel";
             $existe_nombre = json_decode(file_get_contents($url_servicio . "/" . $_POST["nombre"]));
             if(!$existe_nombre) {
                 $lista_nombres = json_decode(file_get_contents($url_servicio), true);

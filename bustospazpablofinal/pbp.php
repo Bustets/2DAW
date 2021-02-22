@@ -39,7 +39,7 @@ class Jugador{
     }
     static function getAll($link){
         try{
-            $consulta = "SELECT * FROM Jugadores where Nombre='$this->Nombre'";
+            $consulta = "SELECT * FROM Jugadores";
             $result = $link->prepare($consulta);
             $result->execute();
             return $result;

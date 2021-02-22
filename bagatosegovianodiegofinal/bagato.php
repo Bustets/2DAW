@@ -1,8 +1,8 @@
 <?php
 include "dbs.php";
 $base= new Bd();
-$nombreCasas=json_decode(file_get_contents('http://localhost/bagatosegovianodiegofinal/diego/diego') , true);
-$nombreJugadores=json_decode(file_get_contents('http://localhost/bagatosegovianodiegofinal/bagato/bagato') , true);
+$nombreCasas=json_decode(file_get_contents('http://localhost/2DAW/bagatosegovianodiegofinal/diego/diego') , true);
+$nombreJugadores=json_decode(file_get_contents('http://localhost/2DAW/bagatosegovianodiegofinal/diego/diego') , true);
 $dato="";
 	$empleado = new Empleado('','','');
 	foreach ($nombreCasas as $key => $value) {
