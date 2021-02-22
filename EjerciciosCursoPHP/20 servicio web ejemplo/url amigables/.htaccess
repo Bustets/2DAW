@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteRule ^post$ post.php
+RewriteRule ^post/(.+)/(.+)$ post.php?id=$1&title=$2
+RewriteRule ^post/(.+)$ post.php?id=$1
+

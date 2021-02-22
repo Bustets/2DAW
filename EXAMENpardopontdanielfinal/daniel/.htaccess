@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteRule ^daniel$ daniel.php
+RewriteRule ^daniel/(.+)$ daniel.php?nombre=$1
