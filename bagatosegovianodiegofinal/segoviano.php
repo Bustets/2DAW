@@ -13,8 +13,7 @@ if (isset($_POST['enviar'])) {
         }else{
             $dato="el fichero no se ha podido subido correctamente";
             require "vistas/mensaje.php";
-        }
-      
+        }      
     }else{
         $dato="el empleado no existe";
         require "vistas/mensaje.php";
