@@ -59,7 +59,8 @@
         echo "<table>";
         echo "<tr>"; 
         echo "</tr>";
-        echo "</table>";*/
+        echo "</table>";
+        */
 
         foreach($arrayPaises as $pais){
             foreach($pais as $value){
