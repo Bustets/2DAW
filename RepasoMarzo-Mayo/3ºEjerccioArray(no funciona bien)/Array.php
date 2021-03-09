@@ -44,29 +44,51 @@
         echo "</table>";
 
 
-
+        echo "<br>";
         echo "Ejercicio 2 array";
+        echo "<br>";
 
     
-        $arrayPaises = array("Pais"=>array("Alemania","Austria","Bélgica"), 
-                            "Capital"=>array("Berlin","Viena","Bruselas"), 
-                            "Extensión"=>array("557046","83849","30518"), 
-                            "Habitantes"=>array("78420000","7614000","9932000"));
-
-        var_dump($arrayPaises);
-       
+        $arrayPaises = array(
+            array('País'=>'País','Capital'=>'Capital','Extensión'=>'Extensión','Habitantes'=>'Habitantes'),
+            array('País'=>'Alemania','Capital'=>'Berlín','Extensión'=>'557046','Habitantes'=>'78420000'), 
+            array('Pais'=>'Austria','Capital'=>'Viena','Extensión'=>'83849','Habitantes'=>'7614000'),
+            array('País'=>'Bélgica','Capital'=>'Bruselas','Extensión'=>'30518','Habitantes'=>'9932000'));
+            
        /*
         echo "<table>";
         echo "<tr>"; 
         echo "</tr>";
         echo "</table>";
         */
-
-        foreach($arrayPaises as $pais){
-            foreach($pais as $value){
-                echo "$dato";
+        /*echo "<table>";
+        echo "<tr>";
+        echo "<th>";
+        foreach($arrayPaises as $arrayPaises =>$pais){
+            echo "</th>";
+            echo "<br>";
+            echo "<td>";
+            foreach($pais as $indice=>$value){
+                echo "</td>";
+                echo $value;
             }
             echo "<br>";
+        }*/
+
+        echo "<table>";
+        echo "<tr>";
+        foreach($arrayPaises as $arrayPaises=>$pais){
+            foreach($pais as $indice=>$value){
+                echo "<td>";
+                echo "<br>";
+                echo $value;
+                echo "</td>";
+            }
+            echo "</tr>";
+            echo "</table>";
+            echo "<br>";
         }
+
+        //no me separa los arrays 
 
 ?>
